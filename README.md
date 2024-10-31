@@ -1,6 +1,6 @@
-## Sistema para la Gestion de Academias Deportivas ##
+# Sistema para la Gestion de Academias Deportivas #
 
-# Contribuidores #
+## Contribuidores ##
 
 - Edu
 - Adrian
