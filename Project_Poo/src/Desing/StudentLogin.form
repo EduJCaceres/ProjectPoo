@@ -39,7 +39,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="keeptoo.KGradientPanel" name="kGradientPanel1">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="kGradientPanel1">
       <Properties>
         <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="9e" green="b3" red="f6" type="rgb"/>
@@ -184,7 +184,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Container class="keeptoo.KGradientPanel" name="kGradientPanel2">
+            <Container class="org.netbeans.modules.form.InvalidComponent" name="kGradientPanel2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>

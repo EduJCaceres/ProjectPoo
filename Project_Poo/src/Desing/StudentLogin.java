@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package SoftwareAcademia;
+package Desing;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,11 +20,12 @@ public class StudentLogin extends javax.swing.JFrame {
     /**
      * Creates new form StudentLogin
      */
+  
+    
     public StudentLogin() {
-        initComponents();
-        this.setLocationRelativeTo(this);
-        SetImageLabel(lblLogo, "src/Image/EscudoCDT.jpg"); 
-        
+       this.setLocationRelativeTo(this);
+       SetImageLabel(lblLogo, "src/Image/EscudoCDT.jpg"); 
+        initComponents();  
     }
      private void SetImageLabel(JLabel lblLogo, String root) {
         ImageIcon image = new ImageIcon(root);
@@ -43,14 +46,14 @@ public class StudentLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        kGradientPanel1 = new keeptoo.KGradientPanel();
+        kGradientPanel1 = new org.netbeans.modules.form.InvalidComponent();
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
+        kGradientPanel2 = new org.netbeans.modules.form.InvalidComponent();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -58,9 +61,6 @@ public class StudentLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(246, 179, 158));
-        kGradientPanel1.setkGradientFocus(800);
-        kGradientPanel1.setkStartColor(new java.awt.Color(158, 225, 246));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -90,10 +90,6 @@ public class StudentLogin extends javax.swing.JFrame {
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(102, 102, 102));
         jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(246, 179, 158)));
-
-        kGradientPanel2.setForeground(new java.awt.Color(0, 0, 0));
-        kGradientPanel2.setkEndColor(new java.awt.Color(0, 102, 255));
-        kGradientPanel2.setkStartColor(new java.awt.Color(255, 70, 181));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -224,6 +220,7 @@ public class StudentLogin extends javax.swing.JFrame {
             }
         });
     }
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -235,8 +232,8 @@ public class StudentLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private keeptoo.KGradientPanel kGradientPanel1;
-    private keeptoo.KGradientPanel kGradientPanel2;
+    private org.netbeans.modules.form.InvalidComponent kGradientPanel1;
+    private org.netbeans.modules.form.InvalidComponent kGradientPanel2;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 }
