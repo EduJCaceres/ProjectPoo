@@ -17,6 +17,7 @@ public class SGAD {
         // TODO code application logic here
         System.out.println("empiecen a agregar el diseño");
         System.out.println("¡A la orden, mi capitán!");
+        System.out.println("Hola Mundo");
     }
     
 }
