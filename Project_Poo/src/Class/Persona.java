@@ -13,7 +13,6 @@ public abstract class Persona {
     private String apellido;
     private String tipoDi; //Tipo de Documento de Identidad
     private int numDi; //Numero de Documento de Identidad
-    private String email;
     private int telefono;
     private String sede;
     private String usuario;
@@ -54,14 +53,6 @@ public abstract class Persona {
 
     public void setNumDi(int numDi) {
         this.numDi = numDi;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public int getTelefono() {
