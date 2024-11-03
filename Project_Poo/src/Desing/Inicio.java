@@ -45,6 +45,7 @@ public class Inicio extends javax.swing.JFrame {
         btnEntrenador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(211, 211, 211));
         kGradientPanel1.setkStartColor(new java.awt.Color(135, 206, 235));
