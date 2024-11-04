@@ -78,7 +78,7 @@ public class StudentLogin extends javax.swing.JFrame {
         jLabel24.setText("Sign In");
 
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel25.setText("Nombre");
+        jLabel25.setText("Usuario:");
 
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Contraseña");
