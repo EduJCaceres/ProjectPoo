@@ -18,6 +18,7 @@ public abstract class Persona {
     private String usuario;
     private String contraseña;
     
+    
     public Persona(String user, String password){
         this.usuario = user;
         this.contraseña = password;
