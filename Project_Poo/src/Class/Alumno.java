@@ -15,8 +15,8 @@ public class Alumno extends Persona{
     private int altura;
     private int peso;
 
-    public Alumno(String user, String password) {
-        super(user, password);
+    public Alumno(String user,String password) {
+        super(user,password);
     }
 
     public String getFecNac() {

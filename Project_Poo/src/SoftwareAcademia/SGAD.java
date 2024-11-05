@@ -1,23 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package SoftwareAcademia;
 
-/**
- *
- * @author Edu
- */
-public class SGAD {
+import Class.Administrador;
+import Class.Alumno;
+import Class.Entrenador;
+import java.util.ArrayList;
 
-    /**
-     * @param args the command line arguments
-     */
+public class SGAD {
+      public static ArrayList<Administrador> administrador;
+      public static ArrayList<Alumno> alumno;
+      public static ArrayList<Entrenador> entrenador;
+      
+      
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("empiecen a agregar el diseño");
-        System.out.println("¡A la orden, mi capitán!");
-        System.out.println("Hola Mundo");
-    }
-    
+        administrador = new ArrayList<>();
+        alumno = new ArrayList<>();
+        entrenador = new ArrayList<>();
+        
+    }    
 }

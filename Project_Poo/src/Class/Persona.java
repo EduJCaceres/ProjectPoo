@@ -8,6 +8,7 @@ package Class;
  *
  * @author Edu
  */
+
 public abstract class Persona {
     private String nombre;
     private String apellido;
@@ -17,6 +18,7 @@ public abstract class Persona {
     private String sede;
     private String usuario;
     private String contraseña;
+    
     
     public Persona(String user, String password){
         this.usuario = user;

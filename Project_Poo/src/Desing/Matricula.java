@@ -460,6 +460,7 @@ public class Matricula extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+<<<<<<< HEAD
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
@@ -519,6 +520,9 @@ public class Matricula extends javax.swing.JFrame {
             }
         });
     }
+=======
+ 
+>>>>>>> 191c0910adc0d1343022ed2e18c7ea3ac57bb266
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
