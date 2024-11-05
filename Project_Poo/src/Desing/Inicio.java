@@ -118,7 +118,8 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         StudentLogin stLogin = new StudentLogin();
         stLogin.setVisible(true);
-        this.dispose();
+        stLogin.setLocationRelativeTo(null);
+        this.setVisible(false);
         
     }//GEN-LAST:event_btnEstudianteActionPerformed
 

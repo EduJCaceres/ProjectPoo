@@ -20,9 +20,11 @@ public abstract class Persona {
     private String contraseña;
     
     
-    public Persona(String user, String password){
+    /*public Persona(String user, String password){
         this.usuario = user;
         this.contraseña = password;
+    }*/
+    public Persona() {
     }
 
     public String getNombre() {

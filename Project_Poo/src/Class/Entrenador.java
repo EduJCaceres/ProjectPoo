@@ -12,8 +12,8 @@ public class Entrenador extends Persona{
     private String especialidad;
     private String fecNac; // Fecha de Nacimiento
     
-    public Entrenador(String user,String password){
-        super(user,password);
+    public Entrenador(){
+        super();
     }
 
     public String getEspecialidad() {
