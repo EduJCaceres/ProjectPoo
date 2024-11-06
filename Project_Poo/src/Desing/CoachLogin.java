@@ -57,7 +57,6 @@ public class CoachLogin extends javax.swing.JFrame {
         btnExit1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel1.setBackground(new java.awt.Color(18, 148, 167));
 
@@ -133,7 +132,7 @@ public class CoachLogin extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(134, 208, 198));
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(18, 148, 167)));
 
-        btnNext.setFont(new java.awt.Font("DialogInput", 2, 12)); // NOI18N
+        btnNext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnNext.setForeground(new java.awt.Color(0, 0, 0));
         btnNext.setText("Registrarse");
         btnNext.setBorder(null);
@@ -196,7 +195,7 @@ public class CoachLogin extends javax.swing.JFrame {
                 .addComponent(btnNext)
                 .addGap(18, 18, 18)
                 .addComponent(btnSiguiente)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,7 +231,6 @@ public class CoachLogin extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnExit1;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnSiguiente;
