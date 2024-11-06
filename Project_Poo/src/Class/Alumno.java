@@ -4,6 +4,8 @@
  */
 package Class;
 
+import SoftwareAcademia.SGAD;
+
 /**
  *
  * @author Edu
@@ -12,11 +14,12 @@ public class Alumno extends Persona{
     private String fecNac; //Fecha de Nacimiento
     private boolean competencia;
     private String pais;
-    private int altura;
-    private int peso;
+    private double altura;
+    private double peso;
+    private int rendimiento;
 
-    public Alumno() {
-        super();
+    public Alumno(String user, String pass) {
+        super(user,pass);
     }
 
     public String getFecNac() {
@@ -43,20 +46,32 @@ public class Alumno extends Persona{
         this.pais = pais;
     }
 
-    public int getAltura() {
+    public double getAltura() {
         return altura;
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
-    public int getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(int peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public int getRendimiento() {
+        return rendimiento;
+    }
+
+    public void setRendimiento(int rendimiento) {
+        this.rendimiento = rendimiento;
+    }
+    
+    public void agregarAlumno(String user, String pass){
+        SGAD.alumno.add(new Alumno(user,pass));
     }
 
     @Override

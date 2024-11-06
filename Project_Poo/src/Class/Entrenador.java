@@ -4,6 +4,8 @@
  */
 package Class;
 
+import SoftwareAcademia.SGAD;
+
 /**
  *
  * @author Edu
@@ -12,8 +14,8 @@ public class Entrenador extends Persona{
     private String especialidad;
     private String fecNac; // Fecha de Nacimiento
     
-    public Entrenador(){
-        super();
+    public Entrenador(String user, String pass){
+        super(user,pass);
     }
 
     public String getEspecialidad() {
@@ -30,6 +32,10 @@ public class Entrenador extends Persona{
 
     public void setFecNac(String fecNac) {
         this.fecNac = fecNac;
+    }
+    
+    public void agregarEntrenador(String user, String pass) {
+        SGAD.entrenador.add(new Entrenador(user,pass));
     }
 
     @Override
