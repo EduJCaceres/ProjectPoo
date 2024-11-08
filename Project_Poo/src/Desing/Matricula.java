@@ -4,18 +4,25 @@
  */
 package Desing;
 
+import Class.Alumno;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ADRIAN
  */
 public class Matricula extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form NewJFrame
      */
     public Matricula() {
         initComponents();
     }
+    
+    Alumno a = new Alumno();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,7 +56,6 @@ public class Matricula extends javax.swing.JFrame {
         btnNext = new javax.swing.JToggleButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        txtSede = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jcbTipodoc = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
@@ -62,6 +68,7 @@ public class Matricula extends javax.swing.JFrame {
         txtPass = new javax.swing.JTextField();
         txtUser = new javax.swing.JTextField();
         jdFecha = new com.toedter.calendar.JDateChooser();
+        cbSede = new javax.swing.JComboBox<>();
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -210,14 +217,6 @@ public class Matricula extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Genero:");
 
-        txtSede.setBackground(new java.awt.Color(204, 204, 204));
-        txtSede.setForeground(new java.awt.Color(84, 84, 84));
-        txtSede.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSedeActionPerformed(evt);
-            }
-        });
-
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -280,6 +279,8 @@ public class Matricula extends javax.swing.JFrame {
         jdFecha.setBackground(new java.awt.Color(204, 204, 204));
         jdFecha.setForeground(new java.awt.Color(255, 255, 255));
 
+        cbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -329,20 +330,22 @@ public class Matricula extends javax.swing.JFrame {
                                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addGap(314, 314, 314))
+                                    .addComponent(cbSede, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jcGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSede, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jcGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(310, 310, 310)
@@ -379,8 +382,8 @@ public class Matricula extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
@@ -461,16 +464,14 @@ public class Matricula extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        
+        // scrip para volver a la pagina anterior
         StudentLogin x = new StudentLogin();
         x.setVisible(true);
         x.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
 
-
-    private void txtSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSedeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSedeActionPerformed
 
     private void txtPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoActionPerformed
         // TODO add your handling code here:
@@ -490,11 +491,92 @@ public class Matricula extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
+        //scrip para validar que nni un campo este vacio
+        if(txtName.getText().length()==0||txtApellido.getText().length()==0||txtcell.getText().length()==0||txtPais.getText().length()==0||txtAltura.getText().length()==0||txtPeso.getText().length()==0||txtUser.getText().length()==0||txtPass.getText().length()==0||txtNumdoc.getText().length()==0||jdFecha.getDateFormatString().length()==0){
+            JOptionPane.showMessageDialog(this,"Datos Incompletos","ERROR" ,JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //validar nombres apellidos
+        if(validar(txtName.getText().trim())==false||validar(txtApellido.getText())==false){
+            JOptionPane.showMessageDialog(this, "no puede contener numeros o simbolos");
+        }else{
+            a.setNombre(txtName.getText());
+            a.setApellido(txtApellido.getText());
+        }
+        
+        //validar numero de telefono
+        if(validarEnteros(txtcell.getText())==false){
+            JOptionPane.showMessageDialog(this, "numero de  celular ingresado es invalido");
+        }else{
+            a.setTelefono(Integer.parseInt(txtcell.getText()));
+        }
+        
+        //validar pais
+        if(validar(txtPais.getText())==false){
+            JOptionPane.showMessageDialog(this, "no puede contener numeros o simbolos");
+        }else{
+            a.setPais(txtPais.getText());
+        }
+        
+        //validar altura y peso
+        if(validarAltura(txtAltura.getText())){
+            
+        }
+        
+        // scrip para validar los usuarios y contraseñas
+        boolean usuario = true, password = true;
+        Pattern patronUsuario = Pattern.compile("\\w+@academy\\.com$");
+        Matcher users = patronUsuario.matcher(txtUser.getText());
+        usuario = users.find();
+        
+        Pattern patronPassword=Pattern.compile("[A-Za-z\\d]{8,}");
+        Matcher passwords = patronPassword.matcher(txtPass.getText());
+        password = passwords.find();
+        
+        if(usuario == false || password == false){
+            JOptionPane.showMessageDialog(this, "Contraseña o usuario incorrecto", "ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }else if(usuario == true && password == true){
+            JOptionPane.showMessageDialog(this, "Usuario registrado");
+            a.setUsuario(txtUser.getText());
+            a.setContraseña(txtPass.getText());
+        }
+        
     }//GEN-LAST:event_btnNextActionPerformed
-
+    
+    public void limpiarControles(){
+        txtName.setText("");
+        txtApellido.setText("");
+        txtcell.setText("");
+        txtPais.setText("");
+        txtAltura.setText("");
+        txtPeso.setText("");
+        txtUser.setText("");
+        txtPass.setText("");
+        txtNumdoc.setText("");
+    }
+    
+    public boolean validar(String datos){
+        return datos.matches("[a-zA-Z]*");
+    }
+    
+    public boolean validarEnteros(String numero){
+        return numero.matches("^[9]\\d{8}");
+    }
+    
+    public boolean validarPeso(String numero){
+        return numero.matches("^[0-9]+(\\\\.[0-9]+)?$");
+    }
+    
+    public boolean validarAltura(String numero){
+        return numero.matches("^([1-9][0-9]{2}|[1-9]?[0-9])(\\\\.[0-9]{1,2})?$");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnExit;
     private javax.swing.JToggleButton btnNext;
+    private javax.swing.JComboBox<String> cbSede;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -526,7 +608,6 @@ public class Matricula extends javax.swing.JFrame {
     private javax.swing.JTextField txtPais;
     private javax.swing.JTextField txtPass;
     private javax.swing.JTextField txtPeso;
-    private javax.swing.JTextField txtSede;
     private javax.swing.JTextField txtUser;
     private javax.swing.JTextField txtcell;
     // End of variables declaration//GEN-END:variables

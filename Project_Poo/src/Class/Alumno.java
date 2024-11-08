@@ -5,6 +5,9 @@
 package Class;
 
 import SoftwareAcademia.SGAD;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,8 +21,8 @@ public class Alumno extends Persona{
     private double peso;
     private int rendimiento;
 
-    public Alumno(String user, String pass) {
-        super(user,pass);
+    public Alumno() {
+        super();
     }
 
     public String getFecNac() {
@@ -70,8 +73,8 @@ public class Alumno extends Persona{
         this.rendimiento = rendimiento;
     }
     
-    public void agregarAlumno(String user, String pass){
-        SGAD.alumno.add(new Alumno(user,pass));
+    public void agregarAlumno(){
+        SGAD.alumno.add(new Alumno());
     }
 
     @Override

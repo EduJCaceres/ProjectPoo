@@ -14,8 +14,8 @@ public class Entrenador extends Persona{
     private String especialidad;
     private String fecNac; // Fecha de Nacimiento
     
-    public Entrenador(String user, String pass){
-        super(user,pass);
+    public Entrenador(){
+        super();
     }
 
     public String getEspecialidad() {
@@ -34,8 +34,8 @@ public class Entrenador extends Persona{
         this.fecNac = fecNac;
     }
     
-    public void agregarEntrenador(String user, String pass) {
-        SGAD.entrenador.add(new Entrenador(user,pass));
+    public void agregarEntrenador() {
+        SGAD.entrenador.add(new Entrenador());
     }
 
     @Override

@@ -22,33 +22,13 @@ public class SGAD {
         x.setVisible(true);
         x.setLocationRelativeTo(null);
         
-       /* Administrador x = new Administrador("ForeverAdmin");
-        x.agregarAdministrador();
-        
-        System.out.println(x.getAdmin());*/
-       
-        /*public void validacion(){
-    boolean cUser=true;
-    boolean cPass=true;
-    boolean x = true;
-    
-        Pattern patronUsuario = Pattern.compile("\\w[@admin.com]$");
-        Pattern patronContraseña = Pattern.compile("\\w\\d+{8,}");
-        
-        Matcher user = patronUsuario.matcher(super.getUsuario());
-        Matcher pass = patronContraseña.matcher(super.getContraseña());
-        
-        cUser = user.find();
-        cPass = pass.find();
-        
-        
-        if(cUser == true && cPass == true && v == true) {
-            agregarAdministrador();
-        }else if(cUser == false || cPass == false || v == false){
-            System.out.println("error");
-        }
-        
-        
-    }*/
+        /*Alumno f = new Alumno();
+        f.setUsuario("edu@academ.com");
+        f.setContraseña("edu13224kd-.");
+        System.out.println(f.getUsuario());
+        System.out.println(f.getContraseña());
+        for (Alumno a : alumno) {
+            System.out.println(a);
+        */
     }    
 }

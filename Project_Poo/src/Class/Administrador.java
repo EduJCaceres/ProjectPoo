@@ -15,8 +15,8 @@ public class Administrador extends Persona{
     private String admin;
     boolean v = false; // verificador de codigo de administradores
     
-    public Administrador(String user, String pass, String cod){
-        super(user,pass);
+    public Administrador(String cod){
+        super();
         this.admin = cod;
     }
 
@@ -51,10 +51,10 @@ public class Administrador extends Persona{
         return v;
     }
     
-    public void agregarAdministrador(String user, String pass, String codigo){
+    public void agregarAdministrador(String codigo){
         verificar(admin);
         if(v == true){
-            SGAD.administrador.add(new Administrador(user,pass,codigo));
+            SGAD.administrador.add(new Administrador(codigo));
         }else if(v == false){
         }
     }
