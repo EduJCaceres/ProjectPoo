@@ -25,7 +25,7 @@ public class StudentLogin extends javax.swing.JFrame {
     public StudentLogin() {
        initComponents(); 
        this.setLocationRelativeTo(this);
-       SetImageLabel(lblLogo, "src/Image/EscudoCDT.jpg"); 
+       SetImageLabel(lblLogo, "/src/Image/EscudoCDT.jpg"); 
        
     }
      private void SetImageLabel(JLabel lblLogo, String root) {

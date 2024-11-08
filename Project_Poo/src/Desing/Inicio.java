@@ -20,17 +20,21 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        
+        this.setVisible(true);
         setButtonImage(btnEstudiante, "src/Image/Alumno.png");
         setButtonImage(btnEntrenador, "src/Image/EntrenadorLogo.png");
     }
     private void setButtonImage(JButton button, String imagePath) {
         
+
         ImageIcon imageIcon = new ImageIcon(imagePath);
         Icon icon = new ImageIcon(imageIcon.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_SMOOTH));
         button.setIcon(icon);
       
         //button.setBorderPainted(false);
         //button.setContentAreaFilled(false);
+        
     }
 
   
@@ -57,14 +61,14 @@ public class Inicio extends javax.swing.JFrame {
         lblMensaje.setForeground(new java.awt.Color(0, 0, 0));
         lblMensaje.setText("Ingrese como: ");
 
-        btnEstudiante.setIcon(new javax.swing.ImageIcon("C:\\Users\\leona\\Documents\\Project-Academy\\ProjectPoo\\Project_Poo\\src\\Image\\Alumno.png")); // NOI18N
+        btnEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Alumno.png"))); // NOI18N
         btnEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEstudianteActionPerformed(evt);
             }
         });
 
-        btnEntrenador.setIcon(new javax.swing.ImageIcon("C:\\Users\\leona\\Documents\\Project-Academy\\ProjectPoo\\Project_Poo\\src\\Image\\EntrenadorLogo.png")); // NOI18N
+        btnEntrenador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EntrenadorLogo.png"))); // NOI18N
         btnEntrenador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrenadorActionPerformed(evt);
@@ -119,7 +123,7 @@ public class Inicio extends javax.swing.JFrame {
         StudentLogin stLogin = new StudentLogin();
         stLogin.setVisible(true);
         stLogin.setLocationRelativeTo(null);
-        this.setVisible(false);
+        //this.setVisible(false);
         
     }//GEN-LAST:event_btnEstudianteActionPerformed
 
@@ -128,6 +132,8 @@ public class Inicio extends javax.swing.JFrame {
         CoachLogin cLogin = new CoachLogin();
         cLogin.setVisible(true);
         this.dispose();
+        
+       
         
     }//GEN-LAST:event_btnEntrenadorActionPerformed
 

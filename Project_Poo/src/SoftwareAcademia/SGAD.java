@@ -14,6 +14,7 @@ public class SGAD {
       
       
     public static void main(String[] args) {
+       
         administrador = new ArrayList<>();
         alumno = new ArrayList<>();
         entrenador = new ArrayList<>();
