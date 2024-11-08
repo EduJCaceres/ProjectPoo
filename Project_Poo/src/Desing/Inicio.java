@@ -123,7 +123,7 @@ public class Inicio extends javax.swing.JFrame {
         StudentLogin stLogin = new StudentLogin();
         stLogin.setVisible(true);
         stLogin.setLocationRelativeTo(null);
-        //this.setVisible(false);
+        this.setVisible(false);
         
     }//GEN-LAST:event_btnEstudianteActionPerformed
 
@@ -131,9 +131,8 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         CoachLogin cLogin = new CoachLogin();
         cLogin.setVisible(true);
-        this.dispose();
-        
-       
+        cLogin.setLocationRelativeTo(null);
+        this.setVisible(false);
         
     }//GEN-LAST:event_btnEntrenadorActionPerformed
 

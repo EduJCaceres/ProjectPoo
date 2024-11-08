@@ -12,7 +12,7 @@ package Class;
 public class Matricula {
     private String tipoPago;
     private String deporte;
-    private int documemnto; // Numero de documento de indentidad
+    private Alumno documemnto; // Numero de documento de indentidad
     private boolean descuento = false;
     
     public Matricula(){
@@ -33,14 +33,6 @@ public class Matricula {
 
     public void setDeporte(String deporte) {
         this.deporte = deporte;
-    }
-
-    public int getDocumemnto() {
-        return documemnto;
-    }
-
-    public void setDocumemnto(int documemnto) {
-        this.documemnto = documemnto;
     }
 
     public boolean isDescuento() {
