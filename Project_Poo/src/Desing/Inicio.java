@@ -152,6 +152,10 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministradorActionPerformed
         // TODO add your handling code here:
+        AdminLogin adLogin = new AdminLogin();
+        adLogin.setVisible(true);
+        adLogin.setLocationRelativeTo(null);
+        this.setVisible(false);
        
         
     }//GEN-LAST:event_btnAdministradorActionPerformed
