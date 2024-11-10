@@ -491,6 +491,7 @@ public class Matricula extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
+        try{
         //scrip para validar que nni un campo este vacio
         if(txtName.getText().length()==0||txtApellido.getText().length()==0||txtcell.getText().length()==0||txtPais.getText().length()==0||txtAltura.getText().length()==0||txtPeso.getText().length()==0||txtUser.getText().length()==0||txtPass.getText().length()==0||txtNumdoc.getText().length()==0||jdFecha.getDateFormatString().length()==0){
             JOptionPane.showMessageDialog(this,"Datos Incompletos","ERROR" ,JOptionPane.ERROR_MESSAGE);
@@ -520,8 +521,11 @@ public class Matricula extends javax.swing.JFrame {
         }
         
         //validar altura y peso
-        if(validarAltura(txtAltura.getText())){
-            
+        if(validarAltura(txtAltura.getText())==false||validarPeso(txtPeso.getText())==false){
+            JOptionPane.showMessageDialog(this, "no puedes  ingresar letras o simbolos");
+        }else{
+            a.setAltura(Double.parseDouble(txtAltura.getText()));
+            a.setPeso(Double.parseDouble(txtPeso.getText()));
         }
         
         // scrip para validar los usuarios y contraseñas
@@ -542,7 +546,10 @@ public class Matricula extends javax.swing.JFrame {
             a.setUsuario(txtUser.getText());
             a.setContraseña(txtPass.getText());
         }
-        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            return;
+        }  
     }//GEN-LAST:event_btnNextActionPerformed
     
     public void limpiarControles(){
