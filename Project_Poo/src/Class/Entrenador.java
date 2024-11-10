@@ -4,15 +4,13 @@
  */
 package Class;
 
-import SoftwareAcademia.SGAD;
-
 /**
  *
  * @author Edu
  */
-public class Entrenador extends Persona{
+public class Entrenador extends Persona implements Comparable<Entrenador>{
     private String especialidad;
-    private String fecNac; // Fecha de Nacimiento
+    private String fecNac; //Fecha de Nacimiento
     
     public Entrenador(){
         super();
@@ -34,13 +32,13 @@ public class Entrenador extends Persona{
         this.fecNac = fecNac;
     }
     
-    public void agregarEntrenador() {
-        SGAD.entrenador.add(new Entrenador());
-    }
-
     @Override
-    public String Persona() {
-        return super.Persona() + "Especialidad: " + especialidad;
-    }
-    
+        public int compareTo(Entrenador aux) {
+            return super.getApellido().compareTo(aux.getApellido());
+        }
+        
+    @Override
+        public String Persona() {
+            return super.Persona() + "Especialidad: " + especialidad;
+        }
 }

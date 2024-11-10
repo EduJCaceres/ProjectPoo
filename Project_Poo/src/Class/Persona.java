@@ -4,6 +4,9 @@
  */
 package Class;
 
+import Enumeradores.Generos;
+import Enumeradores.TipoDocumento;
+
 /**
  *
  * @author Edu
@@ -12,8 +15,9 @@ package Class;
 public abstract class Persona {
     private String nombre;
     private String apellido;
-    private String tipoDi; //Tipo de Documento de Identidad
-    private int numDi; //Numero de Documento de Identidad
+    private TipoDocumento tipoDocumento; //Tipo de Documento de Identidad
+    private String numDi; //Numero de Documento de Identidad
+    private Generos genero;
     private int telefono;
     private String sede;
     private String usuario;
@@ -39,20 +43,28 @@ public abstract class Persona {
         this.apellido = apellido;
     }
 
-    public String getTipoDi() {
-        return tipoDi;
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setTipoDi(String tipoDi) {
-        this.tipoDi = tipoDi;
+    public void setTipoDocumento(TipoDocumento tipoDi) {
+        this.tipoDocumento = tipoDi;
     }
 
-    public int getNumDi() {
+    public String getNumDi() {
         return numDi;
     }
 
-    public void setNumDi(int numDi) {
+    public void setNumDi(String numDi) {
         this.numDi = numDi;
+    }
+    
+    public Generos getGenero(){
+        return genero;
+    }
+    
+    public void setGenero(Generos genero){
+        this.genero = genero;
     }
 
     public int getTelefono() {

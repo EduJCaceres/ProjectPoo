@@ -4,13 +4,12 @@
  */
 package Class;
 
-import SoftwareAcademia.SGAD;
 /**
  *
  * @author Edu
  */
 
-public class Administrador extends Persona{
+public class Administrador extends Persona implements Comparable<Administrador>{
     private String CODADMIN = "ForeverAdmin"; //codigo unico de los Administradores
     private String admin;
     boolean v = false; // verificador de codigo de administradores
@@ -51,16 +50,20 @@ public class Administrador extends Persona{
         return v;
     }
     
-    public void agregarAdministrador(String codigo){
+    /*public void agregarAdministrador(String codigo){
         verificar(admin);
         if(v == true){
             SGAD.administrador.add(new Administrador(codigo));
         }else if(v == false){
         }
-    }
-    
+    }*/
     @Override
-    public String Persona() {
-        return super.Persona() + "Codigo de administrador" + CODADMIN;
-    }
+        public int compareTo(Administrador aux) {
+            return super.getApellido().compareTo(aux.getApellido());
+        }
+        
+    @Override
+        public String Persona() {
+            return super.Persona() + "Codigo de administrador" + CODADMIN;
+        }  
 }

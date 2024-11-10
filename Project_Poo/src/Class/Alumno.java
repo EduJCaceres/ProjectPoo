@@ -4,19 +4,16 @@
  */
 package Class;
 
-import SoftwareAcademia.SGAD;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
+import Enumeradores.Paises;
 
 /**
  *
  * @author Edu
  */
-public class Alumno extends Persona{
+public class Alumno extends Persona implements Comparable<Alumno>{
     private String fecNac; //Fecha de Nacimiento
     private boolean competencia;
-    private String pais;
+    private Paises pais;
     private double altura;
     private double peso;
     private int rendimiento;
@@ -41,11 +38,11 @@ public class Alumno extends Persona{
         this.competencia = competencia;
     }
 
-    public String getPais() {
+    public Paises getPais() {
         return pais;
     }
 
-    public void setPais(String pais) {
+    public void setPais(Paises pais) {
         this.pais = pais;
     }
 
@@ -73,13 +70,13 @@ public class Alumno extends Persona{
         this.rendimiento = rendimiento;
     }
     
-    public void agregarAlumno(){
-        SGAD.alumno.add(new Alumno());
-    }
-
     @Override
-    public String Persona() {
-        return super.Persona() + "Competencia: " + competencia;
-    }
+        public int compareTo(Alumno aux) {
+            return super.getApellido().compareTo(aux.getApellido());
+        }
     
-}
+    @Override
+        public String Persona() {
+            return super.Persona() + "Competencia: " + competencia;
+        }
+}  

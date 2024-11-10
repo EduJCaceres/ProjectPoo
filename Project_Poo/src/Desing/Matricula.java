@@ -514,11 +514,7 @@ public class Matricula extends javax.swing.JFrame {
         }
         
         //validar pais
-        if(validar(txtPais.getText())==false){
-            JOptionPane.showMessageDialog(this, "no puede contener numeros o simbolos");
-        }else{
-            a.setPais(txtPais.getText());
-        }
+        
         
         //validar altura y peso
         if(validarAltura(txtAltura.getText())==false||validarPeso(txtPeso.getText())==false){
