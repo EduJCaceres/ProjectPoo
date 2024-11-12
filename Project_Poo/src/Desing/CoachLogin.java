@@ -51,9 +51,9 @@ public class CoachLogin extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jPasswordField8 = new javax.swing.JPasswordField();
-        btnSiguiente = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         btnNext = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        btnRegistrarse = new javax.swing.JButton();
         btnExit1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,13 +119,13 @@ public class CoachLogin extends javax.swing.JFrame {
         jPasswordField8.setForeground(new java.awt.Color(102, 102, 102));
         jPasswordField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(18, 148, 167)));
 
-        btnSiguiente.setBackground(new java.awt.Color(25, 39, 100));
-        btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSiguiente.setForeground(new java.awt.Color(255, 255, 255));
-        btnSiguiente.setText("Continue");
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        btnNext.setBackground(new java.awt.Color(25, 39, 100));
+        btnNext.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(255, 255, 255));
+        btnNext.setText("Continue");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
+                btnNextActionPerformed(evt);
             }
         });
 
@@ -137,15 +137,15 @@ public class CoachLogin extends javax.swing.JFrame {
             }
         });
 
-        btnNext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnNext.setForeground(new java.awt.Color(0, 0, 0));
-        btnNext.setText("Registrarse");
-        btnNext.setBorder(null);
-        btnNext.setBorderPainted(false);
-        btnNext.setContentAreaFilled(false);
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setBorder(null);
+        btnRegistrarse.setBorderPainted(false);
+        btnRegistrarse.setContentAreaFilled(false);
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
 
@@ -167,7 +167,7 @@ public class CoachLogin extends javax.swing.JFrame {
                         .addComponent(jLabel24)
                         .addGap(143, 143, 143))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(127, 127, 127))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -187,7 +187,7 @@ public class CoachLogin extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(71, Short.MAX_VALUE)
-                        .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)))
                 .addGap(22, 22, 22))
         );
@@ -207,9 +207,9 @@ public class CoachLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPasswordField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
-                .addComponent(btnNext)
+                .addComponent(btnRegistrarse)
                 .addGap(18, 18, 18)
-                .addComponent(btnSiguiente)
+                .addComponent(btnNext)
                 .addContainerGap(121, Short.MAX_VALUE))
         );
 
@@ -231,9 +231,13 @@ public class CoachLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSiguienteActionPerformed
+        CoachMenu x = new CoachMenu();
+        x.setVisible(true);
+        x.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExit1ActionPerformed
         // TODO add your handling code here:
@@ -243,13 +247,13 @@ public class CoachLogin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnExit1ActionPerformed
 
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
          CoachRegistration x = new CoachRegistration();
         x.setVisible(true);
         x.setLocationRelativeTo(null);
         this.setVisible(false);
-    }//GEN-LAST:event_btnNextActionPerformed
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -259,7 +263,7 @@ public class CoachLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit1;
     private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;

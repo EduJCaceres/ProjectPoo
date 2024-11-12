@@ -24,10 +24,14 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         pnlMenu = new javax.swing.JPanel();
-        btnHorario = new javax.swing.JButton();
-        btnRendimiento = new javax.swing.JButton();
-        btnFicha = new javax.swing.JButton();
-        btnMensualidad = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
         tabbedMenu = new javax.swing.JTabbedPane();
         panelMenu1 = new javax.swing.JPanel();
         panelHorario = new javax.swing.JPanel();
@@ -133,77 +137,135 @@ public class StuentMenu extends javax.swing.JFrame {
 
         pnlMenu.setBackground(new java.awt.Color(255, 102, 0));
 
-        btnHorario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnHorario.setForeground(new java.awt.Color(0, 0, 0));
-        btnHorario.setText("Horario");
-        btnHorario.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnHorarioMouseClicked(evt);
-            }
-        });
-        btnHorario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHorarioActionPerformed(evt);
+                jPanel1MouseClicked(evt);
             }
         });
 
-        btnRendimiento.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnRendimiento.setForeground(new java.awt.Color(0, 0, 0));
-        btnRendimiento.setText("Rendimiento");
-        btnRendimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("Horario");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel17)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRendimientoMouseClicked(evt);
-            }
-        });
-        btnRendimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRendimientoActionPerformed(evt);
+                jPanel2MouseClicked(evt);
             }
         });
 
-        btnFicha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnFicha.setForeground(new java.awt.Color(0, 0, 0));
-        btnFicha.setText("Ficha Tecnica");
-        btnFicha.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("Rendimiento");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel30)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel30)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnFichaMouseClicked(evt);
+                jPanel3MouseClicked(evt);
             }
         });
 
-        btnMensualidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnMensualidad.setForeground(new java.awt.Color(0, 0, 0));
-        btnMensualidad.setText("Mensualidad");
-        btnMensualidad.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("Mensualidad");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel31)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel31)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMensualidadMouseClicked(evt);
+                jPanel4MouseClicked(evt);
             }
         });
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setText("Ficha Tecnica");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel32)
+                .addGap(23, 23, 23))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel32)
+                .addGap(14, 14, 14))
+        );
 
         javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
         pnlMenu.setLayout(pnlMenuLayout);
         pnlMenuLayout.setHorizontalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnMensualidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btnRendimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnHorario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btnHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRendimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnFicha, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnMensualidad, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125))
         );
 
         pnlPrincipal.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 130, 440));
@@ -802,36 +864,6 @@ public class StuentMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHorarioActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnHorarioActionPerformed
-
-    private void btnRendimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendimientoActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_btnRendimientoActionPerformed
-
-    private void btnFichaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFichaMouseClicked
-        // TODO add your handlipanelFichaTecnicare:
-        tabbedMenu.setSelectedIndex(0);
-    }//GEN-LAST:event_btnFichaMouseClicked
-
-    private void btnHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHorarioMouseClicked
-        // TODO add your handling code here:
-        tabbedMenu.setSelectedIndex(1);
-    }//GEN-LAST:event_btnHorarioMouseClicked
-
-    private void btnRendimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRendimientoMouseClicked
-        // TODO add your handling code here:
-        tabbedMenu.setSelectedIndex(2);
-    }//GEN-LAST:event_btnRendimientoMouseClicked
-
-    private void btnMensualidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMensualidadMouseClicked
-        // TODO add your handling code here:
-        tabbedMenu.setSelectedIndex(3);
-    }//GEN-LAST:event_btnMensualidadMouseClicked
-
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         StudentLogin x = new StudentLogin();
@@ -852,13 +884,36 @@ public class StuentMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        // TODO add your handling code here:
+        tabbedMenu.setSelectedIndex(0);
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        // TODO add your handling code here:
+        tabbedMenu.setSelectedIndex(1);
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        tabbedMenu.setSelectedIndex(2);
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // TODO add your handling code here:
+        tabbedMenu.setSelectedIndex(3);
+    }//GEN-LAST:event_jPanel4MouseClicked
+ public static void main(String args[]) {
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new StuentMenu().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnFicha;
-    private javax.swing.JButton btnHorario;
-    private javax.swing.JButton btnMensualidad;
-    private javax.swing.JButton btnRendimiento;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -868,6 +923,7 @@ public class StuentMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -882,12 +938,19 @@ public class StuentMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;

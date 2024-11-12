@@ -21,15 +21,7 @@ public class AdminMenu extends javax.swing.JFrame {
     public AdminMenu() {
         initComponents();
         setLocationRelativeTo(this);
-        SetImageLabel(lblLogo, "/src/Image/EscudoCDT.jpg");
-    }
-    private void SetImageLabel(JLabel lblLogo, String root){
-       ImageIcon image = new ImageIcon(root);
-        Icon icon = new ImageIcon(
-        image.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_DEFAULT)
-        );
-        lblLogo.setIcon(icon);
-        this.repaint();
+      
       
        }
 
@@ -38,6 +30,7 @@ public class AdminMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem8 = new javax.swing.JMenuItem();
+        jPanel1 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
@@ -62,9 +55,37 @@ public class AdminMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 61, 89));
+
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EscudoCDT.jpg"))); // NOI18N
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 255));
         jLabel2.setText("<html>\nBienvenido\n<Admin>\nAdmin");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                        .addGap(86, 86, 86))))
+        );
 
         menuAlumno.setText("Alumnos");
 
@@ -128,7 +149,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
         barraMenu.add(menuHorarios);
 
-        jMenu6.setText("menuSalir");
+        jMenu6.setText("Salir");
 
         miSalir.setText("Salir");
         jMenu6.add(miSalir);
@@ -141,21 +162,11 @@ public class AdminMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
-                .addContainerGap(134, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -189,6 +200,7 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JMenu menuAlumno;
     private javax.swing.JMenu menuCurso;
