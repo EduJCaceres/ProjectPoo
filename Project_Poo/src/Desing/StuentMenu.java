@@ -332,7 +332,7 @@ public class StuentMenu extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelMenu1Layout = new javax.swing.GroupLayout(panelMenu1);
@@ -903,14 +903,7 @@ public class StuentMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         tabbedMenu.setSelectedIndex(3);
     }//GEN-LAST:event_jPanel4MouseClicked
- public static void main(String args[]) {
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StuentMenu().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;

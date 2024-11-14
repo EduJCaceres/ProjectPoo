@@ -211,9 +211,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void miAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarAlumnoActionPerformed
         // TODO add your handling code here:
-        AdminAgregarAlumno agregarAlumno = new AdminAgregarAlumno();
-        agregarAlumno.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_miAgregarAlumnoActionPerformed
 
     private void miConsultarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarAlumnoActionPerformed
