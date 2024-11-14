@@ -176,18 +176,21 @@ public class AdminMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         AdminListarAlumno listarAlumno = new AdminListarAlumno();
         listarAlumno.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_miListarAlumnoActionPerformed
 
     private void miAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarAlumnoActionPerformed
         // TODO add your handling code here:
         AdminAgregarAlumno agregarAlumno = new AdminAgregarAlumno();
         agregarAlumno.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_miAgregarAlumnoActionPerformed
 
     private void miConsultarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarAlumnoActionPerformed
         // TODO add your handling code here:
         AdminConsultarAlumno consultarAlumno = new AdminConsultarAlumno();
         consultarAlumno.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_miConsultarAlumnoActionPerformed
 
     /**
