@@ -157,6 +157,11 @@ public class CoachRegistration extends javax.swing.JFrame {
         cbEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
         cbEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
         cbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baloncesto", "Boxeo", "Fútbol", "Fútbol Sala", "Natación", "Tenis", "Vóley" }));
+        cbEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEspecialidadActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -439,6 +444,10 @@ public class CoachRegistration extends javax.swing.JFrame {
         x.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void cbEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEspecialidadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

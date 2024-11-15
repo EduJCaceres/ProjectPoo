@@ -45,11 +45,13 @@ public class AdminMenu extends javax.swing.JFrame {
         miListarEntrenador = new javax.swing.JMenuItem();
         menuCurso = new javax.swing.JMenu();
         miAgregarCurso = new javax.swing.JMenuItem();
-        miListarCurso = new javax.swing.JMenuItem();
+        miConsultarCurso = new javax.swing.JMenuItem();
         menuMatricula = new javax.swing.JMenu();
         miAgregarMatricula = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuHorarios = new javax.swing.JMenu();
         miAgregarHorario = new javax.swing.JMenuItem();
+        miConsultarHorario = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         miSalir = new javax.swing.JMenuItem();
 
@@ -130,7 +132,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
         barraMenu.add(menuAlumno);
 
-        menuDocente.setText("Docentes");
+        menuDocente.setText("Entrenadores");
 
         miConsultarEntrenador.setText("Consultar");
         miConsultarEntrenador.addActionListener(new java.awt.event.ActionListener() {
@@ -153,24 +155,60 @@ public class AdminMenu extends javax.swing.JFrame {
         menuCurso.setText("Cursos");
 
         miAgregarCurso.setText("Agregar");
+        miAgregarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAgregarCursoActionPerformed(evt);
+            }
+        });
         menuCurso.add(miAgregarCurso);
 
-        miListarCurso.setText("Listar");
-        menuCurso.add(miListarCurso);
+        miConsultarCurso.setText("Consultar");
+        miConsultarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarCursoActionPerformed(evt);
+            }
+        });
+        menuCurso.add(miConsultarCurso);
 
         barraMenu.add(menuCurso);
 
         menuMatricula.setText("Matrículas");
 
         miAgregarMatricula.setText("Agregar");
+        miAgregarMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAgregarMatriculaActionPerformed(evt);
+            }
+        });
         menuMatricula.add(miAgregarMatricula);
+
+        jMenuItem1.setText("Consultar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuMatricula.add(jMenuItem1);
 
         barraMenu.add(menuMatricula);
 
         menuHorarios.setText("Horarios");
 
         miAgregarHorario.setText("Agregar");
+        miAgregarHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAgregarHorarioActionPerformed(evt);
+            }
+        });
         menuHorarios.add(miAgregarHorario);
+
+        miConsultarHorario.setText("Consultar");
+        miConsultarHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarHorarioActionPerformed(evt);
+            }
+        });
+        menuHorarios.add(miConsultarHorario);
 
         barraMenu.add(menuHorarios);
 
@@ -249,6 +287,44 @@ public class AdminMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void miAgregarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarCursoActionPerformed
+        // TODO add your handling code here:
+        AdminAgregarCurso agregarCurso = new AdminAgregarCurso();
+        agregarCurso.setVisible(true);
+        
+    }//GEN-LAST:event_miAgregarCursoActionPerformed
+
+    private void miConsultarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarCursoActionPerformed
+        // TODO add your handling code here:
+        AdminConsultarCurso consultarCurso = new AdminConsultarCurso();
+        consultarCurso.setVisible(true);
+    }//GEN-LAST:event_miConsultarCursoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+      AdminConsultarMatricula consultarMatricula = new AdminConsultarMatricula();  
+      consultarMatricula.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void miAgregarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarMatriculaActionPerformed
+        // TODO add your handling code here:
+        AdminAgregarMatricula agregarMatricula = new AdminAgregarMatricula();
+        agregarMatricula.setVisible(true);
+    }//GEN-LAST:event_miAgregarMatriculaActionPerformed
+
+    private void miAgregarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarHorarioActionPerformed
+        // TODO add your handling code here:
+        AdminAgregarHorario agregarHorario = new AdminAgregarHorario();
+        agregarHorario.setVisible(true);
+    }//GEN-LAST:event_miAgregarHorarioActionPerformed
+
+    private void miConsultarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarHorarioActionPerformed
+        // TODO add your handling code here:
+        AdminConsultarHorario consultarHorario = new AdminConsultarHorario();
+        consultarHorario.setVisible(true);
+        
+    }//GEN-LAST:event_miConsultarHorarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,6 +335,7 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLogo;
@@ -272,9 +349,10 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem miAgregarHorario;
     private javax.swing.JMenuItem miAgregarMatricula;
     private javax.swing.JMenuItem miConsultarAlumno;
+    private javax.swing.JMenuItem miConsultarCurso;
     private javax.swing.JMenuItem miConsultarEntrenador;
+    private javax.swing.JMenuItem miConsultarHorario;
     private javax.swing.JMenuItem miListarAlumno;
-    private javax.swing.JMenuItem miListarCurso;
     private javax.swing.JMenuItem miListarEntrenador;
     private javax.swing.JMenuItem miSalir;
     // End of variables declaration//GEN-END:variables
