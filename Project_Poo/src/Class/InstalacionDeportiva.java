@@ -4,16 +4,17 @@
  */
 package Class;
 
+import Enumeradores.TipoCampo;
+
 /**
  *
  * @author Edu
  */
 public class InstalacionDeportiva {
     private String ubicacion;
-    private String tipo; // Tipo de campo
+    private TipoCampo tipoCampo; // Tipo de campo
     
     public InstalacionDeportiva() {
-        
     }
 
     public String getUbicacion() {
@@ -24,15 +25,15 @@ public class InstalacionDeportiva {
         this.ubicacion = ubicacion;
     }
 
-    public String getTipo() {
-        return tipo;
+    public TipoCampo getTipoCampo() {
+        return tipoCampo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoCampo(TipoCampo tipo) {
+        this.tipoCampo = tipo;
     }
     
     public String mostrarInstalacion(){
-        return "Ubicación: " + ubicacion + "Tipo de Campo: " + tipo;
+        return "Ubicación: " + ubicacion + "Tipo de Campo: " + tipoCampo;
     }
 }

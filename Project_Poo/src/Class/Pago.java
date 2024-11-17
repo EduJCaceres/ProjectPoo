@@ -13,7 +13,6 @@ public class Pago {
     private Double pagoUnico;
     
     public Pago(){
-        
     }
 
     public Double getPagoMensual() {

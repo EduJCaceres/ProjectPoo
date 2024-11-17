@@ -16,6 +16,22 @@ public class FichaTecnicaBaloncesto extends FichaTecnica{
         super();
     }
 
+    public String getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(String posicion) {
+        this.posicion = posicion;
+    }
+
+    public int getDorsal() {
+        return dorsal;
+    }
+
+    public void setDorsal(int dorsal) {
+        this.dorsal = dorsal;
+    }
+
     @Override
     public String fichaTecnica() {
         return super.fichaTecnica() + "Posicion: " + posicion + "Dorsal: " + dorsal;

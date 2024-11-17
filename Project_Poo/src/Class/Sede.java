@@ -9,15 +9,27 @@ package Class;
  * @author Edu
  */
 public class Sede {
-    public String departamento;
-    public String provincia;
-    public String distrito;
-    public String ubicacion;
+    private String codSede;
+    private String departamento;
+    private String provincia;
+    private String distrito;
+    private String ubicacion;
+    private Boolean promo;
+    private double descPromo;
+    private Pago pago;
     
     public Sede(String ubicacion){
         this.ubicacion = ubicacion;
     }
 
+    public String getCodSede() {
+        return codSede;
+    }
+    
+    public void setCodSede(String codSede) {
+        this.codSede = codSede;
+    }
+    
     public String getDepartamento() {
         return departamento;
     }
@@ -48,6 +60,37 @@ public class Sede {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+    
+    public boolean getPromo() {
+        return promo;
+    }
+    
+    public void setPromo(boolean promo) {
+        this.promo = promo;
+    }
+    
+    public double getDescPromo() {
+        return descPromo;
+    }
+    
+    public void setDescPromo(double desc) {
+        this.descPromo = desc/100;
+    }
+    
+    //Metodo para calcular los pagos de las matriculas
+    public double pagoMatricula(double unico) {
+        pago.setPagoUnico(unico);
+        
+        if(promo == true){
+            return pago.getPagoUnico() - (pago.getPagoUnico()*descPromo);
+        }else{
+            return pago.getPagoUnico();
+        }
+    }
+    
+    public void pagoMensual(double mensual) {
+        pago.setPagoMensual(mensual);
     }
     
     public String mostrarSede(){

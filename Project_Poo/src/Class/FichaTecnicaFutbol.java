@@ -17,6 +17,30 @@ public class FichaTecnicaFutbol extends FichaTecnica{
         super();
     }
 
+    public String getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(String posicion) {
+        this.posicion = posicion;
+    }
+
+    public int getDorsal() {
+        return dorsal;
+    }
+
+    public void setDorsal(int dorsal) {
+        this.dorsal = dorsal;
+    }
+
+    public String getPieDominante() {
+        return pieDominante;
+    }
+
+    public void setPieDominante(String pieDominante) {
+        this.pieDominante = pieDominante;
+    }
+
     @Override
     public String fichaTecnica() {
         return super.fichaTecnica() + "Posicion: " + posicion + "Dorsal: " + dorsal + "Pie Dominante: " + pieDominante;

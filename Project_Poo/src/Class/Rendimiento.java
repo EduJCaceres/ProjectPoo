@@ -18,10 +18,9 @@ public class Rendimiento {
    private int psicologoco; // Rendimiento Psicologico
    private Double rendimiento; // Rendimiento total
    
-   public Rendimiento(Date date, Double perfomance){
+   public Rendimiento(Date date){
        this.fecha = date;
-       this.rendimiento = perfomance;
-   }
+    }
 
     public Date getFecha() {
         return fecha;

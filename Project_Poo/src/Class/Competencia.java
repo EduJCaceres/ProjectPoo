@@ -16,6 +16,7 @@ public class Competencia {
     private Date hora;
     private String lugar; // Ubicacion donde se realizara el campeonato
     private String categoria;
+    private Alumno alumno;
     
     public Competencia(String deporte, String lugar){
         this.deporte = deporte;
@@ -60,6 +61,16 @@ public class Competencia {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+    
+    public boolean agregarAlumnosParticipantes(String dni, String lastName){
+        if(dni.equalsIgnoreCase(alumno.getNumDi()) && lastName.equalsIgnoreCase(alumno.getApellido())){
+            alumno.setCompetencia(true);
+            return alumno.getCompetencia();
+        }else {
+            alumno.setCompetencia(false);
+            return alumno.getCompetencia();
+        }
     }
     
     public String mostrarCampeonato(){

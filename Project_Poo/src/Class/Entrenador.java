@@ -4,6 +4,8 @@
  */
 package Class;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Edu
@@ -11,6 +13,7 @@ package Class;
 public class Entrenador extends Persona implements Comparable<Entrenador>{
     private String especialidad;
     private String fecNac; //Fecha de Nacimiento
+    public static ArrayList<Entrenador> entrenador = new ArrayList<>();
     
     public Entrenador(){
         super();
