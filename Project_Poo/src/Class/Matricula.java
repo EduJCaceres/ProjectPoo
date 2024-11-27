@@ -1,5 +1,7 @@
 package Class;
 
+import java.time.LocalDate;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -10,10 +12,37 @@ package Class;
  * @author Edu
  */
 public class Matricula {
+    private String idMatricual;
     private String tipoPago;
     private String deporte;
-    private Alumno documemnto; // Numero de documento de indentidad
+    private Alumno documento; // Numero de documento de indentidad
     private boolean descuento = false;
+    private LocalDate fechaInicio;
+
+    public String getIdMatricual() {
+        return idMatricual;
+    }
+
+    public void setIdMatricual(String idMatricual) {
+        this.idMatricual = idMatricual;
+    }
+
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+    private LocalDate fechaFin;
     
     public Matricula(){
         

@@ -47,7 +47,7 @@ public class AdminMenu extends javax.swing.JFrame {
         miAgregarCurso = new javax.swing.JMenuItem();
         miConsultarCurso = new javax.swing.JMenuItem();
         menuMatricula = new javax.swing.JMenu();
-        miAgregarMatricula = new javax.swing.JMenuItem();
+        miVerificarMatricula = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuHorarios = new javax.swing.JMenu();
         miAgregarHorario = new javax.swing.JMenuItem();
@@ -174,13 +174,13 @@ public class AdminMenu extends javax.swing.JFrame {
 
         menuMatricula.setText("Matrículas");
 
-        miAgregarMatricula.setText("Agregar");
-        miAgregarMatricula.addActionListener(new java.awt.event.ActionListener() {
+        miVerificarMatricula.setText("Verificar");
+        miVerificarMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miAgregarMatriculaActionPerformed(evt);
+                miVerificarMatriculaActionPerformed(evt);
             }
         });
-        menuMatricula.add(miAgregarMatricula);
+        menuMatricula.add(miVerificarMatricula);
 
         jMenuItem1.setText("Consultar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -306,11 +306,11 @@ public class AdminMenu extends javax.swing.JFrame {
       consultarMatricula.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void miAgregarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarMatriculaActionPerformed
+    private void miVerificarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVerificarMatriculaActionPerformed
         // TODO add your handling code here:
-        AdminAgregarMatricula agregarMatricula = new AdminAgregarMatricula();
-        agregarMatricula.setVisible(true);
-    }//GEN-LAST:event_miAgregarMatriculaActionPerformed
+        AdminVerificarMatricula verificarMatricula = new AdminVerificarMatricula();
+        verificarMatricula.setVisible(true);
+    }//GEN-LAST:event_miVerificarMatriculaActionPerformed
 
     private void miAgregarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarHorarioActionPerformed
         // TODO add your handling code here:
@@ -347,7 +347,6 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem miAgregarAlumno;
     private javax.swing.JMenuItem miAgregarCurso;
     private javax.swing.JMenuItem miAgregarHorario;
-    private javax.swing.JMenuItem miAgregarMatricula;
     private javax.swing.JMenuItem miConsultarAlumno;
     private javax.swing.JMenuItem miConsultarCurso;
     private javax.swing.JMenuItem miConsultarEntrenador;
@@ -355,5 +354,6 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem miListarAlumno;
     private javax.swing.JMenuItem miListarEntrenador;
     private javax.swing.JMenuItem miSalir;
+    private javax.swing.JMenuItem miVerificarMatricula;
     // End of variables declaration//GEN-END:variables
 }
