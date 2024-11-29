@@ -12,8 +12,13 @@ public class StuentMenu extends javax.swing.JFrame {
      */
     public StuentMenu() {
         initComponents();
+        setLocationRelativeTo(this);
+       // configurarJTextField();
+        
     }
-
+    //public void configurarJTextField(){
+      //  txtRendimiento.setEditable(false);
+    //}
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -42,15 +47,15 @@ public class StuentMenu extends javax.swing.JFrame {
         panelRendimiento = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtEvaluacionTecnica = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtEvaluacionFisica = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtEvaluacionTactica = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtEvaluacionPsicologica = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtRendimiento = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -315,7 +320,8 @@ public class StuentMenu extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTable4);
 
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Ver clases");
 
         javax.swing.GroupLayout panelHorarioLayout = new javax.swing.GroupLayout(panelHorario);
@@ -367,45 +373,58 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Evaluación física:");
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEvaluacionTecnica.setEditable(false);
+        txtEvaluacionTecnica.setBackground(new java.awt.Color(255, 255, 255));
+        txtEvaluacionTecnica.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEvaluacionTecnica.setForeground(new java.awt.Color(0, 0, 0));
+        txtEvaluacionTecnica.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Evaluación Tactica:");
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEvaluacionFisica.setEditable(false);
+        txtEvaluacionFisica.setBackground(new java.awt.Color(255, 255, 255));
+        txtEvaluacionFisica.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEvaluacionFisica.setForeground(new java.awt.Color(0, 0, 0));
+        txtEvaluacionFisica.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEvaluacionFisica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEvaluacionFisicaActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Evaluación Tactica:");
+        jLabel9.setText("Evaluación Tecnica:");
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEvaluacionTactica.setEditable(false);
+        txtEvaluacionTactica.setBackground(new java.awt.Color(255, 255, 255));
+        txtEvaluacionTactica.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEvaluacionTactica.setForeground(new java.awt.Color(0, 0, 0));
+        txtEvaluacionTactica.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Evaluación Psicológica:");
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEvaluacionPsicologica.setEditable(false);
+        txtEvaluacionPsicologica.setBackground(new java.awt.Color(255, 255, 255));
+        txtEvaluacionPsicologica.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEvaluacionPsicologica.setForeground(new java.awt.Color(0, 0, 0));
+        txtEvaluacionPsicologica.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Rendimiento:");
 
-        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtRendimiento.setBackground(new java.awt.Color(255, 255, 255));
+        txtRendimiento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtRendimiento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("%");
@@ -438,7 +457,7 @@ public class StuentMenu extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRendimientoLayout.createSequentialGroup()
                                     .addComponent(jLabel11)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtRendimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRendimientoLayout.createSequentialGroup()
                                     .addGroup(panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel10)
@@ -446,10 +465,10 @@ public class StuentMenu extends javax.swing.JFrame {
                                         .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGap(18, 18, 18)
                                     .addGroup(panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(txtEvaluacionTecnica, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtEvaluacionPsicologica, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtEvaluacionTactica, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtEvaluacionFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,7 +477,7 @@ public class StuentMenu extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addContainerGap(337, Short.MAX_VALUE))
         );
         panelRendimientoLayout.setVerticalGroup(
             panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -468,27 +487,27 @@ public class StuentMenu extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEvaluacionFisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEvaluacionTactica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addGroup(panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEvaluacionTecnica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(18, 18, 18)
                 .addGroup(panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEvaluacionPsicologica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addGroup(panelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRendimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
@@ -497,14 +516,11 @@ public class StuentMenu extends javax.swing.JFrame {
         panelMenu2.setLayout(panelMenu2Layout);
         panelMenu2Layout.setHorizontalGroup(
             panelMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenu2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelRendimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelRendimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenu2Layout.setVerticalGroup(
             panelMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRendimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelRendimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         tabbedMenu.addTab("tab1", panelMenu2);
@@ -523,6 +539,11 @@ public class StuentMenu extends javax.swing.JFrame {
         });
 
         rbCuenta.setText("Cuenta Bancaria");
+        rbCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCuentaActionPerformed(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -632,6 +653,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Apellidos:");
 
+        jTextField8.setEditable(false);
         jTextField8.setBackground(new java.awt.Color(255, 255, 255));
         jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField8.setForeground(new java.awt.Color(0, 0, 0));
@@ -642,6 +664,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Nombre:");
 
+        jTextField9.setEditable(false);
         jTextField9.setBackground(new java.awt.Color(255, 255, 255));
         jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField9.setForeground(new java.awt.Color(0, 0, 0));
@@ -652,6 +675,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("%");
 
+        jTextField10.setEditable(false);
         jTextField10.setBackground(new java.awt.Color(255, 255, 255));
         jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField10.setForeground(new java.awt.Color(0, 0, 0));
@@ -667,6 +691,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Fecha de Nacimiento:");
 
+        jTextField11.setEditable(false);
         jTextField11.setBackground(new java.awt.Color(255, 255, 255));
         jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField11.setForeground(new java.awt.Color(0, 0, 0));
@@ -677,6 +702,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("Categoría:");
 
+        jTextField12.setEditable(false);
         jTextField12.setBackground(new java.awt.Color(255, 255, 255));
         jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField12.setForeground(new java.awt.Color(0, 0, 0));
@@ -687,6 +713,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("E-mail:");
 
+        jTextField13.setEditable(false);
         jTextField13.setBackground(new java.awt.Color(255, 255, 255));
         jTextField13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField13.setForeground(new java.awt.Color(0, 0, 0));
@@ -702,6 +729,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Deporte:");
 
+        jTextField14.setEditable(false);
         jTextField14.setBackground(new java.awt.Color(255, 255, 255));
         jTextField14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField14.setForeground(new java.awt.Color(0, 0, 0));
@@ -712,6 +740,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("Rendimiento:");
 
+        jTextField15.setEditable(false);
         jTextField15.setBackground(new java.awt.Color(255, 255, 255));
         jTextField15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField15.setForeground(new java.awt.Color(0, 0, 0));
@@ -722,6 +751,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("Tipo de Documento:");
 
+        jTextField16.setEditable(false);
         jTextField16.setBackground(new java.awt.Color(255, 255, 255));
         jTextField16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField16.setForeground(new java.awt.Color(0, 0, 0));
@@ -732,6 +762,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Tipo de Documento:");
 
+        jTextField17.setEditable(false);
         jTextField17.setBackground(new java.awt.Color(255, 255, 255));
         jTextField17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField17.setForeground(new java.awt.Color(0, 0, 0));
@@ -742,6 +773,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Altura:");
 
+        jTextField18.setEditable(false);
         jTextField18.setBackground(new java.awt.Color(255, 255, 255));
         jTextField18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField18.setForeground(new java.awt.Color(0, 0, 0));
@@ -752,6 +784,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel34.setForeground(new java.awt.Color(0, 0, 0));
         jLabel34.setText("Rendimiento:");
 
+        jTextField19.setEditable(false);
         jTextField19.setBackground(new java.awt.Color(255, 255, 255));
         jTextField19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField19.setForeground(new java.awt.Color(0, 0, 0));
@@ -767,6 +800,7 @@ public class StuentMenu extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(0, 0, 0));
         jLabel35.setText("Peso:");
 
+        jTextField20.setEditable(false);
         jTextField20.setBackground(new java.awt.Color(255, 255, 255));
         jTextField20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField20.setForeground(new java.awt.Color(0, 0, 0));
@@ -782,27 +816,17 @@ public class StuentMenu extends javax.swing.JFrame {
         panelFichaTecnicaLayout.setHorizontalGroup(
             panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
-                        .addComponent(jLabel29)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField17))
-                    .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField16))
-                    .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
-                        .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel22)
-                                .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(31, 31, 31)
+                        .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
+                                .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
                                 .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel20)
                                     .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -840,9 +864,23 @@ public class StuentMenu extends javax.swing.JFrame {
                                         .addComponent(jLabel34)
                                         .addGap(18, 18, 18)
                                         .addComponent(jTextField19))))
-                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(71, 71, 71))
+                            .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(205, 205, 205))))
+                    .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField17))
+                            .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         panelFichaTecnicaLayout.setVerticalGroup(
             panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -877,29 +915,26 @@ public class StuentMenu extends javax.swing.JFrame {
                     .addComponent(jLabel27))
                 .addGap(18, 18, 18)
                 .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel29)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(66, 66, 66))
-                    .addGroup(panelFichaTecnicaLayout.createSequentialGroup()
-                        .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel34)
-                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel35)
-                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel34)
+                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel35)
+                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28)
+                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelFichaTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60))
         );
 
         javax.swing.GroupLayout panelMenu4Layout = new javax.swing.GroupLayout(panelMenu4);
@@ -979,6 +1014,44 @@ public class StuentMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField19ActionPerformed
 
+    private void txtEvaluacionFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEvaluacionFisicaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEvaluacionFisicaActionPerformed
+
+    private void rbCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbCuentaActionPerformed
+ public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminVerificarMatricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminVerificarMatricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminVerificarMatricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminVerificarMatricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new StuentMenu().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
@@ -1037,11 +1110,6 @@ public class StuentMenu extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel panelFichaTecnica;
@@ -1058,5 +1126,10 @@ public class StuentMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbCuenta;
     private javax.swing.JRadioButton rbYapli;
     private javax.swing.JTabbedPane tabbedMenu;
+    private javax.swing.JTextField txtEvaluacionFisica;
+    private javax.swing.JTextField txtEvaluacionPsicologica;
+    private javax.swing.JTextField txtEvaluacionTactica;
+    private javax.swing.JTextField txtEvaluacionTecnica;
+    private javax.swing.JTextField txtRendimiento;
     // End of variables declaration//GEN-END:variables
 }

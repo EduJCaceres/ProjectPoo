@@ -18,8 +18,7 @@ public class AdminVerificarMatricula extends javax.swing.JFrame {
     public AdminVerificarMatricula() {
         initComponents();
         setLocationRelativeTo(this);
-        txtBuscarMatricula = new javax.swing.JTextField();
-        txtBuscarMatricula.setToolTipText("Ingrese ID de Matrícula o Nombre del Estudiante");
+        
     }
 
     /**
@@ -52,6 +51,7 @@ public class AdminVerificarMatricula extends javax.swing.JFrame {
         comboEstadoMatricula = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         chkPagoRealizado = new javax.swing.JCheckBox();
+        btnExit2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -223,20 +223,27 @@ public class AdminVerificarMatricula extends javax.swing.JFrame {
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
+        btnExit2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/return.jpg"))); // NOI18N
+        btnExit2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExit2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtBuscarMatricula)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)
+                        .addComponent(btnExit2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtBuscarMatricula)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -245,10 +252,12 @@ public class AdminVerificarMatricula extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(txtBuscarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnExit2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -267,6 +276,14 @@ public class AdminVerificarMatricula extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnExit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExit2ActionPerformed
+        // TODO add your handling code here:
+        AdminMenu x = new AdminMenu();
+        x.setVisible(true);
+        x.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExit2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,6 +322,7 @@ public class AdminVerificarMatricula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnExit2;
     private javax.swing.JCheckBox chkPagoRealizado;
     private javax.swing.JComboBox<String> comboEstadoMatricula;
     private javax.swing.JLabel jLabel1;

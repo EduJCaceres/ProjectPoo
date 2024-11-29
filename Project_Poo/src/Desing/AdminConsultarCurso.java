@@ -36,7 +36,6 @@ public class AdminConsultarCurso extends javax.swing.JFrame {
         txtID = new javax.swing.JTextField();
         txtEntrenador = new javax.swing.JTextField();
         txtSede = new javax.swing.JTextField();
-        btnExit = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
@@ -85,13 +84,6 @@ public class AdminConsultarCurso extends javax.swing.JFrame {
         txtSede.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtSede.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/return.jpg"))); // NOI18N
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
 
@@ -128,10 +120,7 @@ public class AdminConsultarCurso extends javax.swing.JFrame {
                             .addComponent(txtEntrenador, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSede, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtID, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,9 +147,7 @@ public class AdminConsultarCurso extends javax.swing.JFrame {
                     .addComponent(btnEliminar)
                     .addComponent(btnModificar)
                     .addComponent(btnBuscar))
-                .addGap(60, 60, 60)
-                .addComponent(btnExit)
-                .addGap(17, 17, 17))
+                .addGap(106, 106, 106))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -204,14 +191,6 @@ public class AdminConsultarCurso extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDocenteActionPerformed
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-        AdminMenu x = new AdminMenu();
-        x.setVisible(true);
-        x.setLocationRelativeTo(null);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnExitActionPerformed
-
     private void jLabel2AncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2AncestorMoved
@@ -254,7 +233,6 @@ public class AdminConsultarCurso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
