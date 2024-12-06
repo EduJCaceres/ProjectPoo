@@ -7,6 +7,7 @@ package Desing;
 import Class.Entrenador;
 import Enumeradores.Deporte;
 import Enumeradores.Generos;
+import Enumeradores.Paises;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeParseException;
@@ -19,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author leona
  */
 public class CoachRegistration extends javax.swing.JFrame {
-
+    Entrenador entrenador = new Entrenador();
     /**
      * Creates new form CoachRegistration
      */
@@ -32,8 +33,11 @@ public class CoachRegistration extends javax.swing.JFrame {
         for (Deporte especialidad : Deporte.values()) {
             cbDeportes.addItem(especialidad);
         }
+        for (Paises pais : Paises.values()){
+             jcPaises.addItem(pais);
     }
-    
+    }
+          //Coach c = new Coach();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,7 +67,6 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         cbDeportes = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtTipoDoc = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -74,6 +77,7 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
+        jcPaises = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -177,9 +181,6 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("País:");
-
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
@@ -314,11 +315,11 @@ public class CoachRegistration extends javax.swing.JFrame {
                                     .addComponent(jLabel8))
                                 .addGap(18, 18, 18)
                                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNumeroDoc)
                                     .addGroup(txtPaisLayout.createSequentialGroup()
                                         .addComponent(cbDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 120, Short.MAX_VALUE))
-                                    .addComponent(txtNumeroDoc)
-                                    .addComponent(jTextField5))))
+                                    .addComponent(jcPaises, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(41, 41, 41))))
         );
         txtPaisLayout.setVerticalGroup(
@@ -348,8 +349,9 @@ public class CoachRegistration extends javax.swing.JFrame {
                         .addComponent(jLabel6)))
                 .addGap(18, 18, 18)
                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(jcPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)))
@@ -361,7 +363,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                     .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -394,7 +396,9 @@ public class CoachRegistration extends javax.swing.JFrame {
                 txtNumeroDoc.getText().isEmpty() || txtTelefono.getText().isEmpty() ||
                 txtEmail.getText().isEmpty()|| jDateChooser1.getDate() == null ||
                 cbGenero.getSelectedItem() == null || cbDeportes.getSelectedItem() == null ||
+
                 txtUser.getText().isEmpty() || txtContraseña.getText().isEmpty())
+
              {
                 JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
                 return;
@@ -446,6 +450,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
              }
+
      Entrenador entrenador = new Entrenador();
             // ... (Asignar valores al objeto Entrenador) ...
            entrenador.setGenero((Generos) cbGenero.getSelectedItem());
@@ -453,6 +458,19 @@ public class CoachRegistration extends javax.swing.JFrame {
 
  entrenador.setGenero((Generos) cbGenero.getSelectedItem());
       // entrenador.setEspecialidad((Deportes) cbDeportes.getSelectedItem()); arreglar
+
+
+     
+      entrenador.setNombre(txtNombre.getText());
+      entrenador.setApellido(txtApellido.getText());
+      entrenador.setNumDi(txtNumeroDoc.getText());
+      entrenador.setTelefono(Integer.parseInt(txtTelefono.getText()));
+    //  entrenador.setEmail(txtEmail.getText()); // Agrega este atributo si lo tienes en Persona
+      entrenador.setGenero((Generos) cbGenero.getSelectedItem());
+      entrenador.setPais((Paises) jcPaises.getSelectedItem());
+      entrenador.setEspecialidad((Deporte) cbDeportes.getSelectedItem());
+      entrenador.setUsuario(txtUser.getText());
+      entrenador.setContraseña(txtContraseña.getText());
 
 
        JOptionPane.showMessageDialog(this, "Registro de entrenador exitoso.");
@@ -469,10 +487,10 @@ public class CoachRegistration extends javax.swing.JFrame {
         }
     }
 
-    private boolean validarContrasena(String contrasena) {
+    private boolean validarContrasena(String contraseña) {
         // Contraseña con al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.
           Pattern patron = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
-        return patron.matcher(contrasena).matches();
+        return patron.matcher(contraseña).matches();
     
 
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -510,7 +528,7 @@ public class CoachRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JComboBox<Enumeradores.Paises> jcPaises;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtEmail;
@@ -521,4 +539,4 @@ public class CoachRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField txtTipoDoc;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
-
+}

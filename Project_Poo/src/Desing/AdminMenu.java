@@ -1,9 +1,19 @@
 
 package Desing;
 
+import Desing.AdminAgregarCurso;
+import Desing.AdminAgregarHorario;
+import Desing.AdminAgregarMatricula;
 import Desing.AdminConsultarAlumno;
 import Desing.AdminConsultarCoach;
+import Desing.AdminConsultarCurso;
+import Desing.AdminConsultarHorario;
+import Desing.AdminConsultarMatricula;
+import Desing.AdminListarAlumno;
 import Desing.AdminListarCoach;
+import Desing.AdminLogin;
+import Desing.AdminVerificarMatricula;
+import Desing.Matricula;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -246,8 +256,9 @@ public class AdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_miListarAlumnoActionPerformed
 
     private void miAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarAlumnoActionPerformed
-        // TODO add your handling code here:
-       
+                // TODO add your handling code here:
+        Matricula m = new Matricula();
+        m.setVisible(true);
     }//GEN-LAST:event_miAgregarAlumnoActionPerformed
 
     private void miConsultarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarAlumnoActionPerformed
@@ -316,11 +327,19 @@ public class AdminMenu extends javax.swing.JFrame {
         AdminAgregarMatricula agregarMatricula = new AdminAgregarMatricula();
         agregarMatricula.setLocationRelativeTo(null);
         agregarMatricula.setVisible(true);
+
                                                      
 
         AdminVerificarMatricula verificarMatricula = new AdminVerificarMatricula();
         verificarMatricula.setVisible(true);
     }                                                    
+
+                                                    
+
+        
+  
+                                                      
+
 
 
     private void miAgregarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarHorarioActionPerformed

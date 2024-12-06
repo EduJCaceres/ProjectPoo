@@ -465,12 +465,12 @@ public class Matricula extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumdocActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
+        // TOD O add your handling code here:
         
         // scrip para volver a la pagina anterior
-        StudentLogin x = new StudentLogin();
-        x.setVisible(true);
-        x.setLocationRelativeTo(null);
+        AdminMenu A = new AdminMenu();
+        A.setVisible(true);
+        A.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
 
