@@ -5,6 +5,8 @@
 package Desing;
 
 import Class.Alumno;
+import Enumeradores.Paises;
+import Enumeradores.Generos;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -20,6 +22,12 @@ public class Matricula extends javax.swing.JFrame {
      */
     public Matricula() {
         initComponents();
+         for (Paises pais : Paises.values()) {
+        jcPaises.addItem(pais);
+         for (Generos genero : Generos.values()) {
+        jcGenero.addItem(genero);
+    }
+         }
     }
     
     Alumno a = new Alumno();
@@ -47,7 +55,6 @@ public class Matricula extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtPais = new javax.swing.JTextField();
         txtcell = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -69,6 +76,7 @@ public class Matricula extends javax.swing.JFrame {
         txtUser = new javax.swing.JTextField();
         jdFecha = new com.toedter.calendar.JDateChooser();
         cbSede = new javax.swing.JComboBox<>();
+        jcPaises = new javax.swing.JComboBox<>();
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -163,14 +171,6 @@ public class Matricula extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("País:");
 
-        txtPais.setBackground(new java.awt.Color(204, 204, 204));
-        txtPais.setForeground(new java.awt.Color(84, 84, 84));
-        txtPais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPaisActionPerformed(evt);
-            }
-        });
-
         txtcell.setBackground(new java.awt.Color(204, 204, 204));
         txtcell.setForeground(new java.awt.Color(84, 84, 84));
         txtcell.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +197,6 @@ public class Matricula extends javax.swing.JFrame {
 
         jcGenero.setBackground(new java.awt.Color(204, 204, 204));
         jcGenero.setForeground(new java.awt.Color(84, 84, 84));
-        jcGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
 
         btnNext.setBackground(new java.awt.Color(0, 209, 132));
         btnNext.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -279,7 +278,13 @@ public class Matricula extends javax.swing.JFrame {
         jdFecha.setBackground(new java.awt.Color(204, 204, 204));
         jdFecha.setForeground(new java.awt.Color(255, 255, 255));
 
-        cbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chimbote", "Lima", "Trujillo", "Piura" }));
+
+        jcPaises.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcPaisesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -293,10 +298,6 @@ public class Matricula extends javax.swing.JFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(310, 310, 310)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtcell, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -350,10 +351,15 @@ public class Matricula extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(310, 310, 310)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(txtcell, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jcPaises, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -375,7 +381,7 @@ public class Matricula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -442,10 +448,6 @@ public class Matricula extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
 
-    private void txtPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPaisActionPerformed
-
     private void txtcellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcellActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcellActionPerformed
@@ -493,11 +495,15 @@ public class Matricula extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
         //scrip para validar que nni un campo este vacio
-        if(txtName.getText().length()==0||txtApellido.getText().length()==0||txtcell.getText().length()==0||txtPais.getText().length()==0||txtAltura.getText().length()==0||txtPeso.getText().length()==0||txtUser.getText().length()==0||txtPass.getText().length()==0||txtNumdoc.getText().length()==0||jdFecha.getDateFormatString().length()==0){
-            JOptionPane.showMessageDialog(this,"Datos Incompletos","ERROR" ,JOptionPane.ERROR_MESSAGE);
-            return;
+            if (txtName.getText().length() == 0 || txtApellido.getText().length() == 0 || txtcell.getText().length() == 0 || 
+                    txtAltura.getText().length() == 0 || txtPeso.getText().length() == 0 || txtUser.getText().length() == 0 || 
+                    txtPass.getText().length() == 0 || txtNumdoc.getText().length() == 0 || jdFecha.getDateFormatString().length() == 0) {
+                JOptionPane.showMessageDialog(this, "Datos Incompletos", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
         }
-        
+          a.setNombre(txtName.getText());
+          a.setApellido(txtApellido.getText());
+          
         //validar nombres apellidos
         if(validar(txtName.getText().trim())==false||validar(txtApellido.getText())==false){
             JOptionPane.showMessageDialog(this, "no puede contener numeros o simbolos");
@@ -512,9 +518,21 @@ public class Matricula extends javax.swing.JFrame {
         }else{
             a.setTelefono(Integer.parseInt(txtcell.getText()));
         }
-        
-        //validar pais
-        
+         // Obtener el país seleccionado del JComboBox
+        Paises paisSeleccionado = (Paises) jcPaises.getSelectedItem();
+
+        //Validación de selección de país.
+        if(paisSeleccionado==null){
+                  JOptionPane.showMessageDialog(this, "Debe seleccionar un país", "ERROR", JOptionPane.ERROR_MESSAGE);
+                  return;
+        }
+        // Asignar el país al objeto Alumno
+        a.setPais(paisSeleccionado);
+         // Obtener el género seleccionado
+        Generos generoSeleccionado = (Generos) jcGenero.getSelectedItem();
+
+        // Asignar el género al objeto Alumno (si es necesario)
+        a.setGenero(generoSeleccionado); 
         
         //validar altura y peso
         if(validarAltura(txtAltura.getText())==false||validarPeso(txtPeso.getText())==false){
@@ -547,12 +565,15 @@ public class Matricula extends javax.swing.JFrame {
             return;
         }  
     }//GEN-LAST:event_btnNextActionPerformed
+
+    private void jcPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcPaisesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcPaisesActionPerformed
     
     public void limpiarControles(){
         txtName.setText("");
         txtApellido.setText("");
         txtcell.setText("");
-        txtPais.setText("");
         txtAltura.setText("");
         txtPeso.setText("");
         txtUser.setText("");
@@ -575,7 +596,13 @@ public class Matricula extends javax.swing.JFrame {
     public boolean validarAltura(String numero){
         return numero.matches("^([1-9][0-9]{2}|[1-9]?[0-9])(\\\\.[0-9]{1,2})?$");
     }
-    
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Matricula().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnExit;
     private javax.swing.JToggleButton btnNext;
@@ -601,14 +628,14 @@ public class Matricula extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JComboBox<String> jcGenero;
+    private javax.swing.JComboBox<Enumeradores.Generos> jcGenero;
+    private javax.swing.JComboBox<Enumeradores.Paises> jcPaises;
     private javax.swing.JComboBox<String> jcbTipodoc;
     private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JTextField txtAltura;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumdoc;
-    private javax.swing.JTextField txtPais;
     private javax.swing.JTextField txtPass;
     private javax.swing.JTextField txtPeso;
     private javax.swing.JTextField txtUser;
