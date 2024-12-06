@@ -8,12 +8,12 @@ package Desing;
  *
  * @author leona
  */
-public class AdminConsultarHorario extends javax.swing.JFrame {
+public class AdminAgregarMatricula extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminConsultarHorario
+     * Creates new form AdminAgregarMatricula
      */
-    public AdminConsultarHorario() {
+    public AdminAgregarMatricula() {
         initComponents();
         setLocationRelativeTo(this);
     }
@@ -51,9 +51,9 @@ public class AdminConsultarHorario extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(355, Short.MAX_VALUE)
+                .addContainerGap(403, Short.MAX_VALUE)
                 .addComponent(btnExit)
-                .addGap(16, 16, 16))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
