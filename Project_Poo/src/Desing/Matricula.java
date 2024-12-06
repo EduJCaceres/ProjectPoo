@@ -75,7 +75,7 @@ public class Matricula extends javax.swing.JFrame {
         txtPass = new javax.swing.JTextField();
         txtUser = new javax.swing.JTextField();
         jdFecha = new com.toedter.calendar.JDateChooser();
-        cbSede = new javax.swing.JComboBox<>();
+        jcSede = new javax.swing.JComboBox<>();
         jcPaises = new javax.swing.JComboBox<>();
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -197,11 +197,16 @@ public class Matricula extends javax.swing.JFrame {
 
         jcGenero.setBackground(new java.awt.Color(204, 204, 204));
         jcGenero.setForeground(new java.awt.Color(84, 84, 84));
+        jcGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcGeneroActionPerformed(evt);
+            }
+        });
 
         btnNext.setBackground(new java.awt.Color(0, 209, 132));
         btnNext.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(0, 0, 0));
-        btnNext.setText("Siguiente");
+        btnNext.setText("Registrar");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -278,7 +283,12 @@ public class Matricula extends javax.swing.JFrame {
         jdFecha.setBackground(new java.awt.Color(204, 204, 204));
         jdFecha.setForeground(new java.awt.Color(255, 255, 255));
 
-        cbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chimbote", "Lima", "Trujillo", "Piura" }));
+        jcSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chimbote", "Lima", "Trujillo", "Piura" }));
+        jcSede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcSedeActionPerformed(evt);
+            }
+        });
 
         jcPaises.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,7 +347,7 @@ public class Matricula extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel11)
                                         .addGap(314, 314, 314))
-                                    .addComponent(cbSede, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jcSede, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -389,7 +399,7 @@ public class Matricula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
@@ -501,48 +511,45 @@ public class Matricula extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Datos Incompletos", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
         }
-          a.setNombre(txtName.getText());
-          a.setApellido(txtApellido.getText());
           
         //validar nombres apellidos
         if(validar(txtName.getText().trim())==false||validar(txtApellido.getText())==false){
             JOptionPane.showMessageDialog(this, "no puede contener numeros o simbolos");
         }else{
+            
             a.setNombre(txtName.getText());
             a.setApellido(txtApellido.getText());
-        }
-        
-        //validar numero de telefono
+            
+             //validar numero de telefono
         if(validarEnteros(txtcell.getText())==false){
             JOptionPane.showMessageDialog(this, "numero de  celular ingresado es invalido");
         }else{
             a.setTelefono(Integer.parseInt(txtcell.getText()));
-        }
-         // Obtener el país seleccionado del JComboBox
-        Paises paisSeleccionado = (Paises) jcPaises.getSelectedItem();
-
-        //Validación de selección de país.
-        if(paisSeleccionado==null){
+            
+            // Obtener el país seleccionado del JComboBox
+            Paises paisSeleccionado = (Paises) jcPaises.getSelectedItem();
+             //Validación de selección de país.
+                 if(paisSeleccionado==null){
                   JOptionPane.showMessageDialog(this, "Debe seleccionar un país", "ERROR", JOptionPane.ERROR_MESSAGE);
                   return;
-        }
-        // Asignar el país al objeto Alumno
-        a.setPais(paisSeleccionado);
-         // Obtener el género seleccionado
+                 }  
+            // Asignar el país al objeto Alumno
+            a.setPais(paisSeleccionado);      
+        
+            // Obtener el género seleccionado
         Generos generoSeleccionado = (Generos) jcGenero.getSelectedItem();
 
         // Asignar el género al objeto Alumno (si es necesario)
         a.setGenero(generoSeleccionado); 
-        
+            
         //validar altura y peso
         if(validarAltura(txtAltura.getText())==false||validarPeso(txtPeso.getText())==false){
             JOptionPane.showMessageDialog(this, "no puedes  ingresar letras o simbolos");
         }else{
             a.setAltura(Double.parseDouble(txtAltura.getText()));
             a.setPeso(Double.parseDouble(txtPeso.getText()));
-        }
-        
-        // scrip para validar los usuarios y contraseñas
+            
+             // scrip para validar los usuarios y contraseñas
         boolean usuario = true, password = true;
         Pattern patronUsuario = Pattern.compile("\\w+@academy\\.com$");
         Matcher users = patronUsuario.matcher(txtUser.getText());
@@ -560,6 +567,11 @@ public class Matricula extends javax.swing.JFrame {
             a.setUsuario(txtUser.getText());
             a.setContraseña(txtPass.getText());
         }
+        }
+            }
+        }
+        limpiarControles();
+       
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
             return;
@@ -568,7 +580,16 @@ public class Matricula extends javax.swing.JFrame {
 
     private void jcPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcPaisesActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jcPaisesActionPerformed
+
+    private void jcSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSedeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcSedeActionPerformed
+
+    private void jcGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcGeneroActionPerformed
     
     public void limpiarControles(){
         txtName.setText("");
@@ -596,17 +617,10 @@ public class Matricula extends javax.swing.JFrame {
     public boolean validarAltura(String numero){
         return numero.matches("^([1-9][0-9]{2}|[1-9]?[0-9])(\\\\.[0-9]{1,2})?$");
     }
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Matricula().setVisible(true);
-            }
-        });
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnExit;
     private javax.swing.JToggleButton btnNext;
-    private javax.swing.JComboBox<String> cbSede;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -630,6 +644,7 @@ public class Matricula extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JComboBox<Enumeradores.Generos> jcGenero;
     private javax.swing.JComboBox<Enumeradores.Paises> jcPaises;
+    private javax.swing.JComboBox<String> jcSede;
     private javax.swing.JComboBox<String> jcbTipodoc;
     private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JTextField txtAltura;

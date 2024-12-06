@@ -258,6 +258,7 @@ public class AdminMenu extends javax.swing.JFrame {
     private void miAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarAlumnoActionPerformed
                 // TODO add your handling code here:
         Matricula m = new Matricula();
+        m.setLocationRelativeTo(null);
         m.setVisible(true);
     }//GEN-LAST:event_miAgregarAlumnoActionPerformed
 
