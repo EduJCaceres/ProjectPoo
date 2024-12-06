@@ -661,14 +661,6 @@ public class CoachMenu extends javax.swing.JFrame {
         calcularRendimiento.setVisible(true);
         
     }//GEN-LAST:event_jButton2ActionPerformed
- public static void main(String args[]) {
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CoachMenu().setVisible(true);
-            }
-        });
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
