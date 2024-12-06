@@ -246,9 +246,9 @@ public class AdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_miListarAlumnoActionPerformed
 
     private void miAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarAlumnoActionPerformed
-                 // TODO add your handling code here:
-       Matricula m = new Matricula();
-       m.setVisible(true);
+                // TODO add your handling code here:
+        Matricula m = new Matricula();
+        m.setVisible(true);
     }//GEN-LAST:event_miAgregarAlumnoActionPerformed
 
     private void miConsultarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarAlumnoActionPerformed
@@ -311,18 +311,18 @@ public class AdminMenu extends javax.swing.JFrame {
       consultarMatricula.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void miVerificarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVerificarMatriculaActionPerformed
+    private void miVerificarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         // TODO add your handling code here:
-<<<<<<< HEAD
+
         AdminAgregarMatricula agregarMatricula = new AdminAgregarMatricula();
         agregarMatricula.setLocationRelativeTo(null);
         agregarMatricula.setVisible(true);
-    }//GEN-LAST:event_miAgregarMatriculaActionPerformed
-=======
-        AdminVerificarMatricula verificarMatricula = new AdminVerificarMatricula();
-        verificarMatricula.setVisible(true);
-    }//GEN-LAST:event_miVerificarMatriculaActionPerformed
->>>>>>> 96a3c79b59d482bd9d38a48f0cd5d78535c4f970
+    }                                                  
+
+        
+  
+                                                      
+
 
     private void miAgregarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarHorarioActionPerformed
         // TODO add your handling code here:
