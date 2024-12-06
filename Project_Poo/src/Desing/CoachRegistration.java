@@ -72,7 +72,7 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -209,11 +209,11 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Contraseña:");
 
-        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtUser.setBackground(new java.awt.Color(255, 255, 255));
+        txtUser.setForeground(new java.awt.Color(0, 0, 0));
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
+                txtUserActionPerformed(evt);
             }
         });
 
@@ -237,7 +237,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addGap(61, 61, 61)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,7 +249,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -382,9 +382,9 @@ public class CoachRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
 
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
+    }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
@@ -394,7 +394,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                 txtNumeroDoc.getText().isEmpty() || txtTelefono.getText().isEmpty() ||
                 txtEmail.getText().isEmpty()|| jDateChooser1.getDate() == null ||
                 cbGenero.getSelectedItem() == null || cbDeportes.getSelectedItem() == null ||
-                txtUsuario.getText().isEmpty() || txtContraseña.getText().isEmpty())
+                txtUser.getText().isEmpty() || txtContraseña.getText().isEmpty())
              {
                 JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
                 return;
@@ -449,10 +449,10 @@ public class CoachRegistration extends javax.swing.JFrame {
      Entrenador entrenador = new Entrenador();
             // ... (Asignar valores al objeto Entrenador) ...
            entrenador.setGenero((Generos) cbGenero.getSelectedItem());
-           entrenador.setEspecialidad((Deportes) cbDeportes.getSelectedItem());
+          // entrenador.setEspecialidad(() cbDeportes.getSelectedItem()); arreglar
 
  entrenador.setGenero((Generos) cbGenero.getSelectedItem());
-       entrenador.setEspecialidad((Deportes) cbDeportes.getSelectedItem());
+      // entrenador.setEspecialidad((Deportes) cbDeportes.getSelectedItem()); arreglar
 
 
        JOptionPane.showMessageDialog(this, "Registro de entrenador exitoso.");
@@ -472,7 +472,7 @@ public class CoachRegistration extends javax.swing.JFrame {
     private boolean validarContrasena(String contrasena) {
         // Contraseña con al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.
           Pattern patron = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
-        return patron.matcher(contraseña).matches();
+        return patron.matcher(contrasena).matches();
     
 
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -489,13 +489,6 @@ public class CoachRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbDeportesActionPerformed
 
- public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CoachRegistration().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnRegistrar;
@@ -526,6 +519,6 @@ public class CoachRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel txtPais;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtTipoDoc;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 

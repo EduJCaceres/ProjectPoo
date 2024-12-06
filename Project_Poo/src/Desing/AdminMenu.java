@@ -1,9 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Desing;
 
+import Desing.AdminConsultarAlumno;
+import Desing.AdminConsultarCoach;
+import Desing.AdminListarCoach;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -310,18 +310,18 @@ public class AdminMenu extends javax.swing.JFrame {
       consultarMatricula.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void miVerificarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVerificarMatriculaActionPerformed
+    private void miVerificarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         // TODO add your handling code here:
-<<<<<<< HEAD
+
         AdminAgregarMatricula agregarMatricula = new AdminAgregarMatricula();
         agregarMatricula.setLocationRelativeTo(null);
         agregarMatricula.setVisible(true);
-    }//GEN-LAST:event_miAgregarMatriculaActionPerformed
-=======
+                                                     
+
         AdminVerificarMatricula verificarMatricula = new AdminVerificarMatricula();
         verificarMatricula.setVisible(true);
-    }//GEN-LAST:event_miVerificarMatriculaActionPerformed
->>>>>>> 96a3c79b59d482bd9d38a48f0cd5d78535c4f970
+    }                                                    
+
 
     private void miAgregarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarHorarioActionPerformed
         // TODO add your handling code here:
