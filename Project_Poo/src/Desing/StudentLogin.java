@@ -54,7 +54,6 @@ public class StudentLogin extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jPasswordField8 = new javax.swing.JPasswordField();
         btnNext = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -100,17 +99,6 @@ public class StudentLogin extends javax.swing.JFrame {
             }
         });
 
-        btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(0, 0, 0));
-        btnRegistrar.setText("Registrarse");
-        btnRegistrar.setBorder(null);
-        btnRegistrar.setContentAreaFilled(false);
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
-            }
-        });
-
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/return.jpg"))); // NOI18N
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,9 +125,6 @@ public class StudentLogin extends javax.swing.JFrame {
                                 .addComponent(jLabel26)
                                 .addComponent(jPasswordField8))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -159,9 +144,7 @@ public class StudentLogin extends javax.swing.JFrame {
                 .addComponent(jLabel26)
                 .addGap(18, 18, 18)
                 .addComponent(jPasswordField8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btnRegistrar)
-                .addGap(18, 18, 18)
+                .addGap(68, 68, 68)
                 .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -235,14 +218,6 @@ public class StudentLogin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnNextActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-        Matricula x = new Matricula();
-        x.setVisible(true);
-        x.setLocationRelativeTo(null);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         Inicio x = new Inicio();
@@ -256,7 +231,6 @@ public class StudentLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;

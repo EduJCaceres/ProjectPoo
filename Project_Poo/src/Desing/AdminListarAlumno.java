@@ -240,6 +240,15 @@ public class AdminListarAlumno extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "debe ingresar un numero valido para el indice", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         }
+        
+    }
+    public static void main(String args[]) {
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminListarAlumno().setVisible(true);
+            }
+        });
     }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
