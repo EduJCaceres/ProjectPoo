@@ -5,10 +5,13 @@
 package Desing;
 
 import Class.Alumno;
+import ClassMethods.GestionColeccion;
 import Enumeradores.Paises;
 import Enumeradores.Generos;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,15 +25,10 @@ public class Matricula extends javax.swing.JFrame {
      */
     public Matricula() {
         initComponents();
-         for (Paises pais : Paises.values()) {
-        jcPaises.addItem(pais);
-         for (Generos genero : Generos.values()) {
-        jcGenero.addItem(genero);
+         //DefaultComboBoxModel<Paises>
     }
-         }
-    }
+         
     
-    Alumno a = new Alumno();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -505,51 +503,32 @@ public class Matricula extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
         //scrip para validar que nni un campo este vacio
-            if (txtName.getText().length() == 0 || txtApellido.getText().length() == 0 || txtcell.getText().length() == 0 || 
+          /*  if (txtName.getText().length() == 0 || txtApellido.getText().length() == 0 || txtcell.getText().length() == 0 || 
                     txtAltura.getText().length() == 0 || txtPeso.getText().length() == 0 || txtUser.getText().length() == 0 || 
                     txtPass.getText().length() == 0 || txtNumdoc.getText().length() == 0 || jdFecha.getDateFormatString().length() == 0) {
                 JOptionPane.showMessageDialog(this, "Datos Incompletos", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
         }
-          
+            
         //validar nombres apellidos
         if(validar(txtName.getText().trim())==false||validar(txtApellido.getText())==false){
             JOptionPane.showMessageDialog(this, "no puede contener numeros o simbolos");
-        }else{
-            
-            a.setNombre(txtName.getText());
-            a.setApellido(txtApellido.getText());
-            
-             //validar numero de telefono
+            return;
+        }
+        
+         //validar numero de telefono
         if(validarEnteros(txtcell.getText())==false){
             JOptionPane.showMessageDialog(this, "numero de  celular ingresado es invalido");
-        }else{
-            a.setTelefono(Integer.parseInt(txtcell.getText()));
-            
-            // Obtener el país seleccionado del JComboBox
-            Paises paisSeleccionado = (Paises) jcPaises.getSelectedItem();
-             //Validación de selección de país.
-                 if(paisSeleccionado==null){
-                  JOptionPane.showMessageDialog(this, "Debe seleccionar un país", "ERROR", JOptionPane.ERROR_MESSAGE);
-                  return;
-                 }  
-            // Asignar el país al objeto Alumno
-            a.setPais(paisSeleccionado);      
+            return;
+        }
         
-            // Obtener el género seleccionado
-        Generos generoSeleccionado = (Generos) jcGenero.getSelectedItem();
-
-        // Asignar el género al objeto Alumno (si es necesario)
-        a.setGenero(generoSeleccionado); 
-            
         //validar altura y peso
         if(validarAltura(txtAltura.getText())==false||validarPeso(txtPeso.getText())==false){
             JOptionPane.showMessageDialog(this, "no puedes  ingresar letras o simbolos");
-        }else{
-            a.setAltura(Double.parseDouble(txtAltura.getText()));
-            a.setPeso(Double.parseDouble(txtPeso.getText()));
-            
-             // scrip para validar los usuarios y contraseñas
+            return;
+        }
+        
+        // scrip para validar los usuarios y contraseñas
         boolean usuario = true, password = true;
         Pattern patronUsuario = Pattern.compile("\\w+@academy\\.com$");
         Matcher users = patronUsuario.matcher(txtUser.getText());
@@ -563,14 +542,25 @@ public class Matricula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Contraseña o usuario incorrecto", "ERROR",JOptionPane.ERROR_MESSAGE);
             return;
         }else if(usuario == true && password == true){
+            
+        } 
+        */
+        Alumno a = new Alumno();
+        GestionColeccion al = new GestionColeccion();
+        al.agregar(a);
+        a.setNombre(txtName.getText());
+        a.setApellido(txtApellido.getText());
+        a.setTelefono(Integer.parseInt(txtcell.getText()));
+        
+        a.setAltura(Double.parseDouble(txtAltura.getText()));
+        a.setPeso(Double.parseDouble(txtPeso.getText()));
+        a.setUsuario(txtUser.getText());
+        a.setContraseña(txtPass.getText());
+        
             JOptionPane.showMessageDialog(this, "Usuario registrado");
-            a.setUsuario(txtUser.getText());
-            a.setContraseña(txtPass.getText());
-        }
-        }
-            }
-        }
-        limpiarControles();
+            
+            limpiarControles();
+        
        
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());

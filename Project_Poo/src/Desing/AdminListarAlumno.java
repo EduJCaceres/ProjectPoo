@@ -175,17 +175,17 @@ public class AdminListarAlumno extends javax.swing.JFrame {
         TableModel modeloTabla = JAlumnos.getModel();
         
         for (int i = 0; i < Alumno.alumno.size(); i++) {
-            Alumno a = Alumno.alumno.get(i);
+            Alumno al = Alumno.alumno.get(i);
             
-            modeloTabla.setValueAt(a.getNombre(), i, 0);
-            modeloTabla.setValueAt(a.getApellido(), i, 1);
-            modeloTabla.setValueAt(a.getGenero(), i, 2);
-            modeloTabla.setValueAt(a.getFecNac(), i, 3);
-            modeloTabla.setValueAt(a.getSede(), i, 4);
-            modeloTabla.setValueAt(a.getPais(), i, 5);
-            modeloTabla.setValueAt(String.valueOf(a.getAltura()), i, 6);
-            modeloTabla.setValueAt(String.valueOf(a.getPeso()) ,i, 7);
-           // modeloTabla.setValueAt(String.valueOf(), i, 8);
+            modeloTabla.setValueAt(al.getNombre(), i, 0);
+            modeloTabla.setValueAt(al.getApellido(), i, 1);
+            modeloTabla.setValueAt(al.getGenero(), i, 2);
+            modeloTabla.setValueAt(al.getFecNac(), i, 3);
+            modeloTabla.setValueAt(al.getSede(), i, 4);
+            modeloTabla.setValueAt(al.getPais(), i, 5);
+            modeloTabla.setValueAt(String.valueOf(al.getAltura()), i, 6);
+            modeloTabla.setValueAt(String.valueOf(al.getPeso()) ,i, 7);
+            modeloTabla.setValueAt(String.valueOf(al.getRendimiento()), i, 8);
         }
     }
     

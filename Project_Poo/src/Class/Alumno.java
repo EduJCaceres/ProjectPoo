@@ -4,6 +4,7 @@
  */
 package Class;
 
+import ClassMethods.GestionColeccion;
 import Enumeradores.Deporte;
 import Enumeradores.Paises;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class Alumno extends Persona implements Comparable<Alumno>{
     private FichaTecnicaNatacion ftn;
     private FichaTecnicaTenis ftt;
     private Deporte deporte;
-
+    
     public Alumno() {
         super();
     }
@@ -111,6 +112,14 @@ public class Alumno extends Persona implements Comparable<Alumno>{
         }else{
             return pago.getPagoMensual();
         }
+    }
+    
+    public void setRendimiento(Rendimiento rendimiento) {
+        this.rendimiento = rendimiento;
+    }
+    
+    public Rendimiento getRendimiento(){
+        return rendimiento;
     }
     
     public void calcularRendimiento(int f, int te, int ta, int p) {
