@@ -5,7 +5,13 @@
 package Desing;
 
 import Class.Entrenador;
+import Enumeradores.Deporte;
+import Enumeradores.Generos;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +26,14 @@ public class CoachRegistration extends javax.swing.JFrame {
     public CoachRegistration() {
         initComponents();
         this.setLocationRelativeTo(this);
+        for (Generos genero : Generos.values()) {
+            cbGenero.addItem(genero);
+        }
+        for (Deporte especialidad : Deporte.values()) {
+            cbDeportes.addItem(especialidad);
+        }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,7 +61,7 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        cbEspecialidad = new javax.swing.JComboBox<>();
+        cbDeportes = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -141,7 +154,6 @@ public class CoachRegistration extends javax.swing.JFrame {
 
         cbGenero.setBackground(new java.awt.Color(255, 255, 255));
         cbGenero.setForeground(new java.awt.Color(0, 0, 0));
-        cbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otro" }));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -154,12 +166,11 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Especialidad");
 
-        cbEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
-        cbEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
-        cbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baloncesto", "Boxeo", "Fútbol", "Fútbol Sala", "Natación", "Tenis", "Vóley" }));
-        cbEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+        cbDeportes.setBackground(new java.awt.Color(255, 255, 255));
+        cbDeportes.setForeground(new java.awt.Color(0, 0, 0));
+        cbDeportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbEspecialidadActionPerformed(evt);
+                cbDeportesActionPerformed(evt);
             }
         });
 
@@ -304,7 +315,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(txtPaisLayout.createSequentialGroup()
-                                        .addComponent(cbEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 120, Short.MAX_VALUE))
                                     .addComponent(txtNumeroDoc)
                                     .addComponent(jTextField5))))
@@ -331,7 +342,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(cbEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)))
@@ -377,64 +388,93 @@ public class CoachRegistration extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        // Validación de campos vacíos
-    if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Por favor, complete el nombre y el apellido.");
-        return;
+  try {
+            // Validaciones de campos vacíos
+            if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty() ||
+                txtNumeroDoc.getText().isEmpty() || txtTelefono.getText().isEmpty() ||
+                txtEmail.getText().isEmpty()|| jDateChooser1.getDate() == null ||
+                cbGenero.getSelectedItem() == null || cbDeportes.getSelectedItem() == null ||
+                txtUsuario.getText().isEmpty() || txtContraseña.getText().isEmpty())
+             {
+                JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
+                return;
+            }
+
+
+           // Validación de nombre y apellido (solo letras)
+            if (!txtNombre.getText().matches("[a-zA-Z]+") || !txtApellido.getText().matches("[a-zA-Z]+")) {
+                 JOptionPane.showMessageDialog(this, "El nombre y apellido solo deben contener letras.");
+                 return;
+             }
+
+
+            // Validación del número de documento
+            String numeroDoc = txtNumeroDoc.getText();
+            if (!numeroDoc.matches("\\d+")) {
+                JOptionPane.showMessageDialog(this, "El número de documento debe contener solo números.");
+                return;
+           }
+
+           // Validación del teléfono (9 dígitos)
+            String telefono = txtTelefono.getText();
+            if (!telefono.matches("\\d{9}")) {  // Exactamente 9 dígitos
+                 JOptionPane.showMessageDialog(this, "El teléfono debe contener 9 dígitos.");
+                 return;
+             }
+
+
+            // Validación de correo electrónico mejorada- se eliminaron los caracteres especiales
+            String email = txtEmail.getText();
+             if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
+                 JOptionPane.showMessageDialog(this, "Ingrese un correo electrónico válido.");
+                return;
+            }
+
+
+            // Validación de fecha de nacimiento (mayor de 18 años)
+            LocalDate fechaNacimiento = jDateChooser1.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+            LocalDate fechaActual = LocalDate.now();
+             Period periodo = Period.between(fechaNacimiento, fechaActual);
+             if (periodo.getYears() < 18) {
+                JOptionPane.showMessageDialog(this, "Debe ser mayor de 18 años para registrarse.");
+                 return;
+             }
+
+            // Validación de contraseña robusta
+             String contraseña = txtContraseña.getText();
+             if (!validarContrasena(contraseña)) {
+                 JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
+             }
+     Entrenador entrenador = new Entrenador();
+            // ... (Asignar valores al objeto Entrenador) ...
+           entrenador.setGenero((Generos) cbGenero.getSelectedItem());
+           entrenador.setEspecialidad((Deportes) cbDeportes.getSelectedItem());
+
+ entrenador.setGenero((Generos) cbGenero.getSelectedItem());
+       entrenador.setEspecialidad((Deportes) cbDeportes.getSelectedItem());
+
+
+       JOptionPane.showMessageDialog(this, "Registro de entrenador exitoso.");
+
+
+
+        } catch (DateTimeParseException e) {
+             JOptionPane.showMessageDialog(this, "Formato de fecha inválido. Use dd/MM/yyyy", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error en el formato de número", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }catch (Exception e) {
+           JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+
+        }
     }
 
-    // Validación del número de documento
-    String numeroDoc = txtNumeroDoc.getText();
-    if (numeroDoc.isEmpty() || !numeroDoc.matches("\\d+")) {
-        JOptionPane.showMessageDialog(this, "El número de documento debe contener solo números.");
-        return;
-    }
-
-    // Validación del teléfono
-    String telefono = txtTelefono.getText();
-    if (!telefono.matches("\\d{9,}")) {
-        JOptionPane.showMessageDialog(this, "El teléfono debe contener al menos 9 dígitos.");
-        return;
-    }
-
-    // Validación del correo electrónico
-    String email = txtEmail.getText();
-    if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-        JOptionPane.showMessageDialog(this, "Ingrese un correo electrónico válido.");
-        return;
-    }
-
-    // Validación de fecha de nacimiento
-    Date fechaNacimiento = jDateChooser1.getDate();
-    if (fechaNacimiento == null) {
-        JOptionPane.showMessageDialog(this, "Seleccione una fecha de nacimiento.");
-        return;
-    }
-
-    // Validación de usuario y contraseña
-    String usuario = txtUsuario.getText();
-    String contraseña = txtContraseña.getText();
-    if (usuario.isEmpty() || contraseña.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "El usuario y la contraseña no deben estar vacíos.");
-        return;
-    }
-    if (contraseña.length() < 6) {
-        JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 6 caracteres.");
-        return;
-    }
-     // Si todas las validaciones son exitosas, crea el objeto Entrenador
-    Entrenador entrenador = new Entrenador();
-    entrenador.setNombre(txtNombre.getText());
-    entrenador.setApellido(txtApellido.getText());
-    entrenador.setNumDi(numeroDoc);
-    entrenador.setTelefono(Integer.parseInt(telefono));
-    entrenador.setUsuario(usuario);
-    entrenador.setContraseña(contraseña);
-    entrenador.setEspecialidad(cbEspecialidad.getSelectedItem().toString());
-   
-    JOptionPane.showMessageDialog(this, "Registro de entrenador exitoso.");
+    private boolean validarContrasena(String contrasena) {
+        // Contraseña con al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.
+          Pattern patron = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        return patron.matcher(contraseña).matches();
     
-        
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -445,16 +485,22 @@ public class CoachRegistration extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void cbEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEspecialidadActionPerformed
+    private void cbDeportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDeportesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbEspecialidadActionPerformed
+    }//GEN-LAST:event_cbDeportesActionPerformed
 
-
+ public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CoachRegistration().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JComboBox<String> cbEspecialidad;
-    private javax.swing.JComboBox<String> cbGenero;
+    private javax.swing.JComboBox<Enumeradores.Deporte> cbDeportes;
+    private javax.swing.JComboBox<Enumeradores.Generos> cbGenero;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -482,4 +528,4 @@ public class CoachRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField txtTipoDoc;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-}
+
