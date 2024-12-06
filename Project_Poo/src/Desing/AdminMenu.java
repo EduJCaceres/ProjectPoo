@@ -21,9 +21,6 @@ public class AdminMenu extends javax.swing.JFrame {
      */
     public AdminMenu() {
         initComponents();
-        setLocationRelativeTo(this);
-      
-      
        }
 
     @SuppressWarnings("unchecked")
@@ -244,6 +241,7 @@ public class AdminMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         AdminListarAlumno listarAlumno = new AdminListarAlumno();
         listarAlumno.setVisible(true);
+        listarAlumno.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_miListarAlumnoActionPerformed
 
@@ -256,18 +254,21 @@ public class AdminMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         AdminConsultarAlumno consultarAlumno = new AdminConsultarAlumno();
         consultarAlumno.setVisible(true);
+        consultarAlumno.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_miConsultarAlumnoActionPerformed
 
     private void miListarEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miListarEntrenadorActionPerformed
         // TODO add your handling code here:
         AdminListarCoach listarEntrenador = new AdminListarCoach();
+        listarEntrenador.setLocationRelativeTo(null);
         listarEntrenador.setVisible(true);
     }//GEN-LAST:event_miListarEntrenadorActionPerformed
 
     private void miConsultarEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarEntrenadorActionPerformed
         // TODO add your handling code here:
         AdminConsultarCoach consultarEntrenador = new AdminConsultarCoach();
+        consultarEntrenador.setLocationRelativeTo(null);
         consultarEntrenador.setVisible(true);
     }//GEN-LAST:event_miConsultarEntrenadorActionPerformed
 
@@ -290,6 +291,7 @@ public class AdminMenu extends javax.swing.JFrame {
     private void miAgregarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarCursoActionPerformed
         // TODO add your handling code here:
         AdminAgregarCurso agregarCurso = new AdminAgregarCurso();
+        agregarCurso.setLocationRelativeTo(null);
         agregarCurso.setVisible(true);
         
     }//GEN-LAST:event_miAgregarCursoActionPerformed
@@ -297,37 +299,39 @@ public class AdminMenu extends javax.swing.JFrame {
     private void miConsultarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarCursoActionPerformed
         // TODO add your handling code here:
         AdminConsultarCurso consultarCurso = new AdminConsultarCurso();
+        consultarCurso.setLocationRelativeTo(null);
         consultarCurso.setVisible(true);
     }//GEN-LAST:event_miConsultarCursoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
       AdminConsultarMatricula consultarMatricula = new AdminConsultarMatricula();  
+      consultarMatricula.setLocationRelativeTo(null);
       consultarMatricula.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void miAgregarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarMatriculaActionPerformed
         // TODO add your handling code here:
         AdminAgregarMatricula agregarMatricula = new AdminAgregarMatricula();
+        agregarMatricula.setLocationRelativeTo(null);
         agregarMatricula.setVisible(true);
     }//GEN-LAST:event_miAgregarMatriculaActionPerformed
 
     private void miAgregarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarHorarioActionPerformed
         // TODO add your handling code here:
         AdminAgregarHorario agregarHorario = new AdminAgregarHorario();
+        agregarHorario.setLocationRelativeTo(null);
         agregarHorario.setVisible(true);
     }//GEN-LAST:event_miAgregarHorarioActionPerformed
 
     private void miConsultarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarHorarioActionPerformed
         // TODO add your handling code here:
         AdminConsultarHorario consultarHorario = new AdminConsultarHorario();
+        consultarHorario.setLocationRelativeTo(null);
         consultarHorario.setVisible(true);
         
     }//GEN-LAST:event_miConsultarHorarioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

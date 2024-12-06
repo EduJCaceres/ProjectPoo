@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,4 +58,24 @@ public class GestionColeccion<T extends Persona> implements GestionColecciones<T
         }
         return personas.get(0);
     }
+    
+   private int buscarIndice(List<T> list, String datoBuscado){
+       for(int i=0; i<list.size(); i++){
+           if(list.get(i).getNombre().equalsIgnoreCase(datoBuscado)){
+               return i;
+           }
+       }
+        return -1;
+    }
+   
+   public T buscar(String dato) {
+       int indice = buscarIndice(personas,dato);
+       
+       if(indice!=-1){
+           return personas.get(indice);
+       }else{
+           JOptionPane.showMessageDialog(null, "Datos no encontrados", "ERROR", JOptionPane.ERROR_MESSAGE);
+           return null;
+       }
+   }
 }

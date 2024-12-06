@@ -14,8 +14,7 @@ public class AdminListarCoach extends javax.swing.JFrame {
      * Creates new form AdminListarCoach
      */
     public AdminListarCoach() {
-        initComponents();
-        setLocationRelativeTo(this);
+        initComponents();;
     }
 
     /**
@@ -235,13 +234,7 @@ public class AdminListarCoach extends javax.swing.JFrame {
         x.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
-public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminListarCoach().setVisible(true);
-            }
-        });
-    }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
