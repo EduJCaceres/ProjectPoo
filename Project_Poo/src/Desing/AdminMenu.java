@@ -333,16 +333,8 @@ public class AdminMenu extends javax.swing.JFrame {
 
         AdminVerificarMatricula verificarMatricula = new AdminVerificarMatricula();
         verificarMatricula.setVisible(true);
-    }                                                    
-
-                                                    
-
-        
-  
-                                                      
-
-
-
+    }
+    
     private void miAgregarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgregarHorarioActionPerformed
         // TODO add your handling code here:
         AdminAgregarHorario agregarHorario = new AdminAgregarHorario();
