@@ -4,6 +4,9 @@
  */
 package Class;
 
+import Enumeradores.Deporte;
+import Enumeradores.Paises;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -11,29 +14,40 @@ import java.util.ArrayList;
  * @author Edu
  */
 public class Entrenador extends Persona implements Comparable<Entrenador>{
-    private String especialidad;
-    private String fecNac; //Fecha de Nacimiento
+    private Deporte especialidad;
+    private Paises pais;
+    private LocalDate fecNac; //Fecha de Nacimiento
     public static ArrayList<Entrenador> entrenador = new ArrayList<>();
     
     public Entrenador(){
         super();
     }
 
-    public String getEspecialidad() {
+    public Paises getPais() {
+        return pais;
+    }
+
+    public void setPais(Paises pais) {
+        this.pais = pais;
+    }
+
+
+    public Deporte getEspecialidad() {
         return especialidad;
     }
 
-    public void setEspecialidad(String especialidad) {
+    public void setEspecialidad(Deporte especialidad) {
         this.especialidad = especialidad;
     }
 
-    public String getFecNac() {
+    public LocalDate getFecNac() {
         return fecNac;
     }
 
-    public void setFecNac(String fecNac) {
+    public void setFecNac(LocalDate fecNac) {
         this.fecNac = fecNac;
     }
+    
     
     @Override
         public int compareTo(Entrenador aux) {
