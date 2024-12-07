@@ -435,14 +435,20 @@ public class CoachRegistration extends javax.swing.JFrame {
             }
 
 
-            // Validación de fecha de nacimiento (mayor de 18 años)
+            // Validación de fecha de nacimiento 
             LocalDate fechaNacimiento = jDateChooser1.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
             LocalDate fechaActual = LocalDate.now();
              Period periodo = Period.between(fechaNacimiento, fechaActual);
-             if (periodo.getYears() < 18) {
-                JOptionPane.showMessageDialog(this, "Debe ser mayor de 18 años para registrarse.");
+             if (periodo.getYears() < 7) {
+                JOptionPane.showMessageDialog(this, "Debe ser mayor de 7 años para registrarse.");
+                 return;}
+                 else if (periodo.getYears() > 25){
+                 JOptionPane.showMessageDialog(this, "Debe ser menor de 25 años para registrarse.");
                  return;
-             }
+                  }
+
+             
+
 
             // Validación de contraseña robusta
              String contraseña = txtContraseña.getText();
@@ -456,7 +462,7 @@ public class CoachRegistration extends javax.swing.JFrame {
            entrenador.setGenero((Generos) cbGenero.getSelectedItem());
           // entrenador.setEspecialidad(() cbDeportes.getSelectedItem()); arreglar
 
- entrenador.setGenero((Generos) cbGenero.getSelectedItem());
+      //entrenador.setGenero((Generos) cbGenero.getSelectedItem());
       // entrenador.setEspecialidad((Deportes) cbDeportes.getSelectedItem()); arreglar
 
 
@@ -485,13 +491,13 @@ public class CoachRegistration extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 
         }
-    }
+}
 
     private boolean validarContrasena(String contraseña) {
         // Contraseña con al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.
           Pattern patron = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
         return patron.matcher(contraseña).matches();
-    
+
 
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -507,6 +513,14 @@ public class CoachRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbDeportesActionPerformed
 
+    public static void main(String args[]) {
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminListarAlumno().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnRegistrar;

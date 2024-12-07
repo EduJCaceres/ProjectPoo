@@ -59,6 +59,8 @@ public class AdminMenu extends javax.swing.JFrame {
         menuHorarios = new javax.swing.JMenu();
         miAgregarHorario = new javax.swing.JMenuItem();
         miConsultarHorario = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        miRegistrarMenu = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         miSalir = new javax.swing.JMenuItem();
 
@@ -219,6 +221,18 @@ public class AdminMenu extends javax.swing.JFrame {
 
         barraMenu.add(menuHorarios);
 
+        jMenu1.setText("Pago");
+
+        miRegistrarMenu.setText("RegistrarPago");
+        miRegistrarMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miRegistrarMenuActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miRegistrarMenu);
+
+        barraMenu.add(jMenu1);
+
         jMenu6.setText("Salir");
 
         miSalir.setText("Salir");
@@ -350,12 +364,20 @@ public class AdminMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_miConsultarHorarioActionPerformed
 
+    private void miRegistrarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRegistrarMenuActionPerformed
+        // TODO add your handling code here:
+        RegistrarPago Rpago = new RegistrarPago();
+        Rpago.setVisible(true);
+        
+    }//GEN-LAST:event_miRegistrarMenuActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btnExit;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem8;
@@ -375,6 +397,7 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConsultarHorario;
     private javax.swing.JMenuItem miListarAlumno;
     private javax.swing.JMenuItem miListarEntrenador;
+    private javax.swing.JMenuItem miRegistrarMenu;
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JMenuItem miVerificarMatricula;
     // End of variables declaration//GEN-END:variables

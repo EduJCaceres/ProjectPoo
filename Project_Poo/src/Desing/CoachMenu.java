@@ -659,6 +659,7 @@ public class CoachMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         CoachCalcularRendimiento calcularRendimiento = new CoachCalcularRendimiento();
         calcularRendimiento.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
