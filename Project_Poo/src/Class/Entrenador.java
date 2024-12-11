@@ -17,7 +17,6 @@ public class Entrenador extends Persona implements Comparable<Entrenador>{
     private Deporte especialidad;
     private Paises pais;
     private LocalDate fecNac; //Fecha de Nacimiento
-    public static ArrayList<Entrenador> entrenador = new ArrayList<>();
     
     public Entrenador(){
         super();

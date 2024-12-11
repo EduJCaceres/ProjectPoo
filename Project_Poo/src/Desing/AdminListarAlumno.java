@@ -7,7 +7,9 @@ package Desing;
 import Class.Alumno;
 import ClassMethods.GestionColeccion;
 import Enumeradores.Deporte;
+import SoftwareAcademia.SGAD;
 import java.awt.FlowLayout;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,8 +22,8 @@ import javax.swing.table.TableModel;
  * @author leona
  */
 public class AdminListarAlumno extends javax.swing.JFrame {
-
-    /**
+    
+   /**
      * Creates new form AdminListarAlumno
      */
     public AdminListarAlumno() {
@@ -169,13 +171,13 @@ public class AdminListarAlumno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void llenarTabla(){
-        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Nombre","Apellido","Genero","Categoria","Sede","Pais","Altura","Peso","Rendimiento"},Alumno.alumno.size());
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Nombre","Apellido","Genero","Categoria","Sede","Pais","Altura","Peso","Rendimiento"},SGAD.alumnos.size());
         JAlumnos.setModel(modelo);
         
         TableModel modeloTabla = JAlumnos.getModel();
         
-        for (int i = 0; i < Alumno.alumno.size(); i++) {
-            Alumno al = Alumno.alumno.get(i);
+        for (int i = 0; i < SGAD.alumnos.size(); i++) {
+            Alumno al = SGAD.alumnos.get(i);
             
             modeloTabla.setValueAt(al.getNombre(), i, 0);
             modeloTabla.setValueAt(al.getApellido(), i, 1);
@@ -189,7 +191,7 @@ public class AdminListarAlumno extends javax.swing.JFrame {
         }
     }
     
-    GestionColeccion<Alumno> a = new GestionColeccion<>();
+    
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         AdminMenu x = new AdminMenu();
@@ -200,7 +202,7 @@ public class AdminListarAlumno extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        a.buscar(txtBuscar.getText());
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -210,8 +212,7 @@ public class AdminListarAlumno extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        a.eliminar(Alumno.alumno.get(JAlumnos.getSelectedRow()));
-        llenarTabla();
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed

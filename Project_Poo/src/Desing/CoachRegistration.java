@@ -459,7 +459,7 @@ public class CoachRegistration extends javax.swing.JFrame {
 
      Entrenador entrenador = new Entrenador();
             // ... (Asignar valores al objeto Entrenador) ...
-           entrenador.setGenero((Generos) cbGenero.getSelectedItem());
+           //entrenador.setGenero((Generos) cbGenero.getSelectedItem());
           // entrenador.setEspecialidad(() cbDeportes.getSelectedItem()); arreglar
 
       //entrenador.setGenero((Generos) cbGenero.getSelectedItem());
@@ -472,7 +472,7 @@ public class CoachRegistration extends javax.swing.JFrame {
       entrenador.setNumDi(txtNumeroDoc.getText());
       entrenador.setTelefono(Integer.parseInt(txtTelefono.getText()));
     //  entrenador.setEmail(txtEmail.getText()); // Agrega este atributo si lo tienes en Persona
-      entrenador.setGenero((Generos) cbGenero.getSelectedItem());
+     // entrenador.setGenero((Generos) cbGenero.getSelectedItem());
       entrenador.setPais((Paises) jcPaises.getSelectedItem());
       entrenador.setEspecialidad((Deporte) cbDeportes.getSelectedItem());
       entrenador.setUsuario(txtUser.getText());

@@ -6,8 +6,13 @@ package Desing;
 
 import Class.Alumno;
 import ClassMethods.GestionColeccion;
-import Enumeradores.Paises;
+import Enumeradores.Deporte;
 import Enumeradores.Generos;
+import Enumeradores.Paises;
+import Enumeradores.Sede;
+import Enumeradores.TipoDocumento;
+import SoftwareAcademia.SGAD;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
@@ -16,13 +21,28 @@ import javax.swing.JOptionPane;
 
 
 public class Matricula extends javax.swing.JFrame {
-    
+    GestionColeccion<Alumno> alumnos = new GestionColeccion<>();
+    Alumno al = new Alumno();
+    Date fecha;
     /**
      * Creates new form NewJFrame
      */
     public Matricula() {
         initComponents();
-         //DefaultComboBoxModel<Paises>
+        DefaultComboBoxModel<Paises> p = new DefaultComboBoxModel<>(new Paises[]{Paises.ARGENTINA, Paises.BOLIVIA, Paises.BRASIL, Paises.CHILE, Paises.COLOMBIA, Paises.ECUADOR, Paises.PARAGUAY, Paises.PERU, Paises.URUGUAY, Paises.VENEZUELA});
+        jcPaises.setModel(p);
+        
+        DefaultComboBoxModel<Generos> g = new DefaultComboBoxModel<>(new Generos[]{Generos.MASCULINO, Generos.FEMENINO, Generos.OTROS});
+        jcGenero.setModel(g);
+        
+        DefaultComboBoxModel<Sede> se = new DefaultComboBoxModel<>(new Sede[]{Sede.CHIMBOTE, Sede.CHICLAYO, Sede.LIMA, Sede.TRUJILLO});
+        jcSede.setModel(se);
+        
+        DefaultComboBoxModel<TipoDocumento> td = new DefaultComboBoxModel<>(new TipoDocumento[]{TipoDocumento.DNI, TipoDocumento.CARNET_EXTRANJERIA, TipoDocumento.PASAPORTE});
+        jcbTipodoc.setModel(td);
+        
+        DefaultComboBoxModel<Deporte> d = new DefaultComboBoxModel<>(new Deporte[]{Deporte.BASQUET, Deporte.BOXEO, Deporte.FUTBOL_SALA, Deporte.FUTBOL_SOCCER, Deporte.NATACION, Deporte.TENIS, Deporte.VOLEY});
+        jcDeporte.setModel(d);
     }
          
     
@@ -69,9 +89,11 @@ public class Matricula extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         txtPass = new javax.swing.JTextField();
         txtUser = new javax.swing.JTextField();
-        jdFecha = new com.toedter.calendar.JDateChooser();
-        jcSede = new javax.swing.JComboBox<>();
         jcPaises = new javax.swing.JComboBox<>();
+        jcSede = new javax.swing.JComboBox<>();
+        jLabel20 = new javax.swing.JLabel();
+        jcDeporte = new javax.swing.JComboBox<>();
+        jcFecha = new com.toedter.calendar.JCalendar();
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -221,7 +243,6 @@ public class Matricula extends javax.swing.JFrame {
 
         jcbTipodoc.setBackground(new java.awt.Color(204, 204, 204));
         jcbTipodoc.setForeground(new java.awt.Color(84, 84, 84));
-        jcbTipodoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "Pasaporte", "Carnet de extrangeria" }));
 
         jLabel15.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
@@ -275,21 +296,15 @@ public class Matricula extends javax.swing.JFrame {
             }
         });
 
-        jdFecha.setBackground(new java.awt.Color(204, 204, 204));
-        jdFecha.setForeground(new java.awt.Color(255, 255, 255));
-
-        jcSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chimbote", "Lima", "Trujillo", "Piura" }));
-        jcSede.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcSedeActionPerformed(evt);
-            }
-        });
-
         jcPaises.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcPaisesActionPerformed(evt);
             }
         });
+
+        jLabel20.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Deporte:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -308,12 +323,7 @@ public class Matricula extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jcbTipodoc, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jdFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel17))))
+                                    .addComponent(jcbTipodoc, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -336,20 +346,34 @@ public class Matricula extends javax.swing.JFrame {
                                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(314, 314, 314))
-                                    .addComponent(jcSede, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jcSede, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jcGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jcGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addGap(178, 178, 178)
+                                        .addComponent(jLabel20))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(100, 100, 100)
+                                                .addComponent(jcDeporte, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 241, Short.MAX_VALUE)))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -420,13 +444,24 @@ public class Matricula extends javax.swing.JFrame {
                     .addComponent(jcbTipodoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumdoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNext))
-                .addGap(45, 45, 45)
-                .addComponent(jLabel13))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jcDeporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel13))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnNext)
+                                .addGap(22, 22, 22))))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -498,11 +533,14 @@ public class Matricula extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
+        fecha = jcFecha.getDate();
+        String f = fecha.toString();
+        
         try{
-        //scrip para validar que nni un campo este vacio
-          /*  if (txtName.getText().length() == 0 || txtApellido.getText().length() == 0 || txtcell.getText().length() == 0 || 
+       /* //scrip para validar que nni un campo este vacio
+            if (txtName.getText().length() == 0 || txtApellido.getText().length() == 0 || txtcell.getText().length() == 0 || 
                     txtAltura.getText().length() == 0 || txtPeso.getText().length() == 0 || txtUser.getText().length() == 0 || 
-                    txtPass.getText().length() == 0 || txtNumdoc.getText().length() == 0 || jdFecha.getDateFormatString().length() == 0) {
+                    txtPass.getText().length() == 0 || txtNumdoc.getText().length() == 0) {
                 JOptionPane.showMessageDialog(this, "Datos Incompletos", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
         }
@@ -540,24 +578,37 @@ public class Matricula extends javax.swing.JFrame {
             return;
         }else if(usuario == true && password == true){
             
-        } 
-        */
-        Alumno a = new Alumno();
-        GestionColeccion al = new GestionColeccion();
-        al.agregar(a);
-        a.setNombre(txtName.getText());
-        a.setApellido(txtApellido.getText());
-        a.setTelefono(Integer.parseInt(txtcell.getText()));
+        }*/
         
-        a.setAltura(Double.parseDouble(txtAltura.getText()));
-        a.setPeso(Double.parseDouble(txtPeso.getText()));
-        a.setUsuario(txtUser.getText());
-        a.setContraseña(txtPass.getText());
+       /* alumnos.agregar(new Alumno(String.valueOf(f),jcPaises.getSelectedItem().toString(), Double.parseDouble(txtAltura.getText()), Double.parseDouble(txtPeso.getText()), jcDeporte.getSelectedItem().toString(), txtName.getText(), txtApellido.getText(), jcbTipodoc.getSelectedItem().toString(), txtNumdoc.getText(), jcGenero.getSelectedItem().toString(), Integer.parseInt(txtcell.getText()), jcSede.getSelectedItem().toString(), txtUser.getText(), txtPass.getText()));
+            for (Alumno alumno : alumnos) {
+                SGAD.alumnos.add(alumno);
+            }*/
+       
+        SGAD.alumnos.add(al);
+        for(Alumno aa : SGAD.alumnos) {
         
-            JOptionPane.showMessageDialog(this, "Usuario registrado");
-            
-            limpiarControles();
+        aa.setNombre(txtName.getText());
+        aa.setApellido(txtApellido.getText());
+        aa.setTelefono(Integer.parseInt(txtcell.getText()));
+        aa.setPais(jcPaises.getSelectedItem().toString());
+        aa.setSede(jcSede.getSelectedItem().toString());
+        aa.setGenero(jcGenero.getSelectedItem().toString());
+        aa.setAltura(Double.parseDouble(txtAltura.getText()));
+        aa.setPeso(Double.parseDouble(txtPeso.getText()));
+        aa.setUsuario(txtUser.getText());
+        aa.setContraseña(txtPass.getText());
+        aa.setTipoDocumento(jcbTipodoc.getSelectedItem().toString());
+        aa.setNumDi(txtNumdoc.getText());
+        aa.setFecNac(String.valueOf(f));
+        aa.getRendimiento();
         
+        alumnos.agregar(aa);
+        }
+        
+        JOptionPane.showMessageDialog(this, "Usuario registrado");
+        
+        limpiarControles();
        
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -569,10 +620,6 @@ public class Matricula extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jcPaisesActionPerformed
-
-    private void jcSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSedeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcSedeActionPerformed
 
     private void jcGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcGeneroActionPerformed
         // TODO add your handling code here:
@@ -618,6 +665,7 @@ public class Matricula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -629,11 +677,12 @@ public class Matricula extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JComboBox<Enumeradores.Deporte> jcDeporte;
+    private com.toedter.calendar.JCalendar jcFecha;
     private javax.swing.JComboBox<Enumeradores.Generos> jcGenero;
     private javax.swing.JComboBox<Enumeradores.Paises> jcPaises;
-    private javax.swing.JComboBox<String> jcSede;
-    private javax.swing.JComboBox<String> jcbTipodoc;
-    private com.toedter.calendar.JDateChooser jdFecha;
+    private javax.swing.JComboBox<Enumeradores.Sede> jcSede;
+    private javax.swing.JComboBox<Enumeradores.TipoDocumento> jcbTipodoc;
     private javax.swing.JTextField txtAltura;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtName;

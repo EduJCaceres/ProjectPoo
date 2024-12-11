@@ -15,9 +15,9 @@ import Enumeradores.TipoDocumento;
 public abstract class Persona {
     private String nombre;
     private String apellido;
-    private TipoDocumento tipoDocumento; //Tipo de Documento de Identidad
+    private String tipoDocumento; //Tipo de Documento de Identidad
     private String numDi; //Numero de Documento de Identidad
-    private Generos genero;
+    private String genero;
     private int telefono;
     private String sede;
     private String usuario;
@@ -25,6 +25,18 @@ public abstract class Persona {
     
     
     public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String tipoDocumento, String numDi, String genero, int telefono, String sede, String usuario, String contraseña) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.tipoDocumento = tipoDocumento;
+        this.numDi = numDi;
+        this.genero = genero;
+        this.telefono = telefono;
+        this.sede = sede;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
     }
 
     public String getNombre() {
@@ -43,12 +55,12 @@ public abstract class Persona {
         this.apellido = apellido;
     }
 
-    public TipoDocumento getTipoDocumento() {
+    public String getTipoDocumento() {
         return tipoDocumento;
     }
 
-    public void setTipoDocumento(TipoDocumento tipoDi) {
-        this.tipoDocumento = tipoDi;
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
 
     public String getNumDi() {
@@ -58,12 +70,12 @@ public abstract class Persona {
     public void setNumDi(String numDi) {
         this.numDi = numDi;
     }
-    
-    public Generos getGenero(){
+
+    public String getGenero() {
         return genero;
     }
-    
-    public void setGenero(Generos genero){
+
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 

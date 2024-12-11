@@ -8,6 +8,7 @@ import ClassMethods.GestionColeccion;
 import Enumeradores.Deporte;
 import Enumeradores.Paises;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -16,14 +17,13 @@ import java.util.ArrayList;
 public class Alumno extends Persona implements Comparable<Alumno>{
     private String fecNac; //Fecha de Nacimiento
     private boolean competencia;
-    private Paises pais;
+    private String pais;
     private double altura;
     private double peso;
     private Rendimiento rendimiento;
     private boolean beca;
     private double descBeca;
     private Pago pago;
-    public static ArrayList<Alumno> alumno = new ArrayList<>();
     private String ficha;
     private FichaTecnicaFutbol ftf;
     private FichaTecnicaFutsal ftfs;
@@ -32,10 +32,22 @@ public class Alumno extends Persona implements Comparable<Alumno>{
     private FichaTecnicaBoxeo ftbo;
     private FichaTecnicaNatacion ftn;
     private FichaTecnicaTenis ftt;
-    private Deporte deporte;
-    
+    private String deporte;
+
     public Alumno() {
-        super();
+    }
+
+    public Alumno(String fecNac, String pais, double altura, double peso, String deporte, String nombre, String apellido, String tipoDocumento, String numDi, String genero, int telefono, String sede, String usuario, String contraseña) {
+        super(nombre, apellido, tipoDocumento, numDi, genero, telefono, sede, usuario, contraseña);
+        this.fecNac = fecNac;
+        this.pais = pais;
+        this.altura = altura;
+        this.peso = peso;
+        this.deporte = deporte;
+    }
+    
+    public Alumno(Rendimiento rendimiento) {
+        this.rendimiento = rendimiento;
     }
 
     public String getFecNac() {
@@ -46,19 +58,11 @@ public class Alumno extends Persona implements Comparable<Alumno>{
         this.fecNac = fecNac;
     }
 
-    public boolean getCompetencia() {
-        return competencia;
-    }
-
-    public void setCompetencia(boolean competencia) {
-        this.competencia = competencia;
-    }
-
-    public Paises getPais() {
+    public String getPais() {
         return pais;
     }
 
-    public void setPais(Paises pais) {
+    public void setPais(String pais) {
         this.pais = pais;
     }
 
@@ -76,6 +80,22 @@ public class Alumno extends Persona implements Comparable<Alumno>{
 
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public String getDeporte() {
+        return deporte;
+    }
+
+    public void setDeporte(String deporte) {
+        this.deporte = deporte;
+    }
+
+    public boolean getCompetencia() {
+        return competencia;
+    }
+
+    public void setCompetencia(boolean competencia) {
+        this.competencia = competencia;
     }
     
     public boolean getBeca() {
@@ -96,14 +116,6 @@ public class Alumno extends Persona implements Comparable<Alumno>{
     
     public double getDescBeca() {
         return descBeca;
-    }
-    
-    public Deporte getDeporte() {
-        return deporte;
-    }
-    
-    public void setDeporte(Deporte deporte) {
-        this.deporte = deporte;
     }
         
     public double pagoMensual() {

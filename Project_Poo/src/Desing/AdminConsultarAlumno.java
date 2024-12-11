@@ -4,6 +4,7 @@
  */
 package Desing;
 
+import Class.Alumno;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -15,7 +16,7 @@ import javax.swing.JButton;
  * @author leona
  */
 public class AdminConsultarAlumno extends javax.swing.JFrame {
-
+    Alumno a = new Alumno();
     /**
      * Creates new form AdminConsultarAlumno
      */
@@ -227,6 +228,15 @@ public class AdminConsultarAlumno extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
+            System.out.println(a.getNombre());
+            System.out.println(a.getApellido());
+            System.out.println(a.getTelefono());
+            System.out.println(a.getPais());
+            System.out.println(a.getSede());
+            System.out.println(a.getGenero());
+            System.out.println(a.getAltura());
+            System.out.println(a.getPeso());
+            System.out.println(a.getUsuario());
     }//GEN-LAST:event_btnConsultarActionPerformed
 
 

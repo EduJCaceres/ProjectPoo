@@ -15,7 +15,6 @@ public class Administrador extends Persona implements Comparable<Administrador>{
     private String CODADMIN = "ForeverAdmin"; //codigo unico de los Administradores
     private String admin;
     boolean v = false; // verificador de codigo de administradores
-    public static ArrayList<Administrador> administrador = new ArrayList<>();
     
     public Administrador(String cod){
         super();
