@@ -414,7 +414,7 @@ public class CoachRegistration extends javax.swing.JFrame {
         String fecNac = fecha.toString();
         
   try {
-           /* // Validaciones de campos vacíos
+            // Validaciones de campos vacíos
             if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty() ||
                 txtNumeroDoc.getText().isEmpty() || txtTelefono.getText().isEmpty() ||
                 txtEmail.getText().isEmpty()|| jdFechaNac.getDate() == null ||
@@ -475,7 +475,7 @@ public class CoachRegistration extends javax.swing.JFrame {
              if (!validarContrasena(contraseña)) {
                  JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
-             }*/
+             }
              
              SGAD.entrenador.add(en);
              

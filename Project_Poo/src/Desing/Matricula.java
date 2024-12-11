@@ -537,7 +537,7 @@ public class Matricula extends javax.swing.JFrame {
         String f = fecha.toString();
         
         try{
-        /*//scrip para validar que nni un campo este vacio
+        //scrip para validar que nni un campo este vacio
             if (txtName.getText().length() == 0 || txtApellido.getText().length() == 0 || txtcell.getText().length() == 0 || 
                     txtAltura.getText().length() == 0 || txtPeso.getText().length() == 0 || txtUser.getText().length() == 0 || 
                     txtPass.getText().length() == 0 || txtNumdoc.getText().length() == 0) {
@@ -578,7 +578,7 @@ public class Matricula extends javax.swing.JFrame {
             return;
         }else if(usuario == true && password == true){
             
-        }*/
+        }
         
        alumnos.agregar(al);
         
