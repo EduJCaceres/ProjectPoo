@@ -225,7 +225,7 @@ public class AdminLogin extends javax.swing.JFrame {
         try{
             boolean rpta = false;
             for(Administrador en : SGAD.administrador){
-                if(en.getUsuario().equalsIgnoreCase(txtUsuario.getText()) && en.getContraseña().equalsIgnoreCase(txtContraseña.getText()) && en.getAdmin().equalsIgnoreCase(txtClave.getText())) {
+                if(en.getUsuario().equalsIgnoreCase(txtUsuario.getText()) && en.getContraseña().equalsIgnoreCase(txtContraseña.getText()) && en.getCODADMIN().equalsIgnoreCase(txtClave.getText())) {
                     rpta = true;
                 }
             }

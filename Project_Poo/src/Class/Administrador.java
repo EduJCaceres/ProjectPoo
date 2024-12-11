@@ -13,52 +13,19 @@ import java.util.ArrayList;
 
 public class Administrador extends Persona implements Comparable<Administrador>{
     private String CODADMIN = "ForeverAdmin"; //codigo unico de los Administradores
-    private String admin;
-    boolean v = false; // verificador de codigo de administradores
     
-    public Administrador(String cod){
+    public Administrador(){
         super();
-        this.admin = cod;
     }
 
-    public String getAdmin() {
-        return admin;
+    public String getCODADMIN() {
+        return CODADMIN;
     }
 
-    public void setAdmin(String admin) {
-        this.admin = admin;
-    }
-
-    public boolean getV() {
-        return v;
-    }
-
-    public void setV(boolean v) {
-        this.v = v;
+    public void setCODADMIN(String CODADMIN) {
+        this.CODADMIN = CODADMIN;
     }
     
-     private String comparar(String comparador) {
-        if (comparador.equals(CODADMIN)) {
-            setAdmin(CODADMIN);
-        }else{
-            setAdmin(null);
-        }
-       return admin; 
-    }
-    
-    private boolean verificar (String verificador){
-        comparar(verificador);
-        if(CODADMIN.equals(admin)){v = true;}else{v = false;}
-        return v;
-    }
-    
-    /*public void agregarAdministrador(String codigo){
-        verificar(admin);
-        if(v == true){
-            SGAD.administrador.add(new Administrador(codigo));
-        }else if(v == false){
-        }
-    }*/
     @Override
         public int compareTo(Administrador aux) {
             return super.getApellido().compareTo(aux.getApellido());
