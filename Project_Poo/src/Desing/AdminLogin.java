@@ -4,10 +4,13 @@
  */
 package Desing;
 
+import Class.Administrador;
+import SoftwareAcademia.SGAD;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,8 +51,8 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
+        txtClave = new javax.swing.JPasswordField();
         btnContinuar = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         txtContraseña = new javax.swing.JPasswordField();
@@ -114,14 +117,14 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Contraseña:");
 
-        jTextField1.setBackground(new java.awt.Color(164, 147, 217));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setToolTipText("");
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(75, 61, 119)));
+        txtUsuario.setBackground(new java.awt.Color(164, 147, 217));
+        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        txtUsuario.setToolTipText("");
+        txtUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(75, 61, 119)));
 
-        jPasswordField2.setBackground(new java.awt.Color(164, 147, 217));
-        jPasswordField2.setForeground(new java.awt.Color(0, 0, 0));
-        jPasswordField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(75, 61, 119)));
+        txtClave.setBackground(new java.awt.Color(164, 147, 217));
+        txtClave.setForeground(new java.awt.Color(0, 0, 0));
+        txtClave.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(75, 61, 119)));
 
         btnContinuar.setBackground(new java.awt.Color(0, 0, 0));
         btnContinuar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -158,11 +161,11 @@ public class AdminLogin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtClave, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnContinuar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(txtContraseña, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -180,7 +183,7 @@ public class AdminLogin extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -188,7 +191,7 @@ public class AdminLogin extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(btnContinuar)
                 .addContainerGap(112, Short.MAX_VALUE))
@@ -214,10 +217,37 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
-        AdminMenu x = new AdminMenu();
-        x.setVisible(true);
-        x.setLocationRelativeTo(null);
-        this.setVisible(false);
+        if(txtUsuario.getText().length()==0 || txtContraseña.getText().length()==0 || txtClave.getText().length() == 0){
+            JOptionPane.showMessageDialog(this, "Datos incompletos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        try{
+            boolean rpta = false;
+            for(Administrador en : SGAD.administrador){
+                if(en.getUsuario().equalsIgnoreCase(txtUsuario.getText()) && en.getContraseña().equalsIgnoreCase(txtContraseña.getText()) && en.getAdmin().equalsIgnoreCase(txtClave.getText())) {
+                    rpta = true;
+                }
+            }
+            
+            if(rpta==true){
+                
+                AdminMenu x = new AdminMenu();
+                x.setVisible(true);
+                x.setLocationRelativeTo(null);
+                this.setVisible(false);
+                
+            }else{
+                
+                JOptionPane.showMessageDialog(this, "Usuario o Contraseña incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
+                
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e);
+        }
+        
         
         
     }//GEN-LAST:event_btnContinuarActionPerformed
@@ -243,9 +273,9 @@ public class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JPasswordField txtClave;
     private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

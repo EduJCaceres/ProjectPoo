@@ -230,7 +230,7 @@ public class StudentLogin extends javax.swing.JFrame {
             
             if(rpta==true){
                 
-                CoachMenu x = new CoachMenu();
+                StuentMenu x = new StuentMenu();
                 x.setVisible(true);
                 x.setLocationRelativeTo(null);
                 this.setVisible(false);
@@ -246,10 +246,7 @@ public class StudentLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e);
         }
         
-        StuentMenu x = new StuentMenu();
-        x.setVisible(true);
-        x.setLocationRelativeTo(null);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
