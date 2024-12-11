@@ -4,6 +4,12 @@
  */
 package Desing;
 
+import Class.Entrenador;
+import SoftwareAcademia.SGAD;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author leona
@@ -17,6 +23,33 @@ public class AdminListarCoach extends javax.swing.JFrame {
         initComponents();;
     }
 
+    
+    public void llenarTabla() {
+        DefaultTableModel model = new DefaultTableModel(new String[] {"Nombre","Apellido","Telefono","Fecha de Nacimiento","Genero","Especialidad","E-mail","Pais","Tipo Documento","Numero Documento","Usuario","Contraseña","Sede"}, SGAD.entrenador.size());
+        jtCoach.setModel(model);
+        
+        TableModel modeloTabla = jtCoach.getModel();
+        
+        for (int i=0; i<SGAD.entrenador.size(); i++){
+            Entrenador c = SGAD.entrenador.get(i);
+            
+            modeloTabla.setValueAt(c.getNombre(), i, 0);
+            modeloTabla.setValueAt(c.getApellido(), i, 1);
+            modeloTabla.setValueAt(c.getTelefono(), i, 2);
+            modeloTabla.setValueAt(c.getFecNac(), i, 3);
+            modeloTabla.setValueAt(c.getGenero(), i, 4);
+            modeloTabla.setValueAt(c.getEspecialidad(), i, 5);
+            modeloTabla.setValueAt(c.getEmail(), i, 6);
+            modeloTabla.setValueAt(c.getPais(), i, 7);
+            modeloTabla.setValueAt(c.getTipoDocumento(), i, 8);
+            modeloTabla.setValueAt(c.getNumDi(), i, 9);
+            modeloTabla.setValueAt(c.getUsuario(), i, 10);
+            modeloTabla.setValueAt(c.getContraseña(), i, 11);
+            modeloTabla.setValueAt(c.getSede(), i, 12);
+            
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,22 +60,23 @@ public class AdminListarCoach extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        txtID = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         btnExit = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jtCoach = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(170, 255, 195));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Listar Coach", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Listar Coach", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        txtID.setBackground(new java.awt.Color(255, 255, 255));
-        txtID.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtID.setForeground(new java.awt.Color(0, 0, 0));
+        txtBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        txtBuscar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtBuscar.setForeground(new java.awt.Color(0, 0, 0));
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/return.jpg"))); // NOI18N
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -53,12 +87,35 @@ public class AdminListarCoach extends javax.swing.JFrame {
 
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnModificar.setText("Mdificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -66,37 +123,38 @@ public class AdminListarCoach extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 70, Short.MAX_VALUE)
-                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(btnBuscar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnModificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)
-                        .addGap(30, 30, 30))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addComponent(btnBuscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnModificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnActualizar)
+                .addGap(13, 13, 13))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar)
                     .addComponent(btnModificar)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnBuscar)
+                    .addComponent(btnActualizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
-        jTable2.setBackground(new java.awt.Color(204, 204, 204));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jtCoach.setBackground(new java.awt.Color(204, 204, 204));
+        jtCoach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -107,7 +165,7 @@ public class AdminListarCoach extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jtCoach);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,16 +198,79 @@ public class AdminListarCoach extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        llenarTabla();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        int index = jtCoach.getSelectedRow();
+        
+        if(index>=0) {
+            SGAD.entrenador.remove(index);
+        }
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel mode = (DefaultTableModel) jtCoach.getModel();
+        mode.setRowCount(0);
+        
+        for(Entrenador co : SGAD.entrenador) {
+            if(co.getNombre().equalsIgnoreCase(txtBuscar.getText())){
+                mode.addRow(new Object[]{co.getNombre(), co.getApellido(), co.getTelefono(), co.getFecNac(), co.getGenero(), co.getEspecialidad(), co.getEmail(), co.getPais(), co.getTipoDocumento(), co.getNumDi(), co.getUsuario(), co.getContraseña(), co.getSede()});
+            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        int index = jtCoach.getSelectedRow();
+        if(index>=0){
+            Object[] opciones = {"Usuario", "Contraseña"};
+            int eleccion = JOptionPane.showOptionDialog(
+                null,
+                "¿Qué campo desea modificar?",
+                "Modificar Usuario o Contraseña",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]
+            );
+            if (eleccion == JOptionPane.YES_OPTION) { // Usuario
+        String nuevoUsuario = JOptionPane.showInputDialog("Ingrese el nuevo usuario:");
+        if (nuevoUsuario != null && !nuevoUsuario.trim().isEmpty()) {
+            // Actualizar el campo usuario del alumno
+            SGAD.entrenador.get(index).setUsuario(nuevoUsuario);
+        } else {
+            JOptionPane.showMessageDialog(null, "El campo usuario no puede estar vacío.");
+        }
+    } else if (eleccion == JOptionPane.NO_OPTION) { // Contraseña
+        String nuevaContraseña = JOptionPane.showInputDialog("Ingrese la nueva contraseña:");
+        if (nuevaContraseña != null && !nuevaContraseña.trim().isEmpty()) {
+            // Actualizar el campo contraseña del alumno
+            SGAD.entrenador.get(index).setContraseña(nuevaContraseña);
+        } else {
+            JOptionPane.showMessageDialog(null, "El campo contraseña no puede estar vacío.");
+        }
+    }
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnModificar;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField txtID;
+    private javax.swing.JTable jtCoach;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

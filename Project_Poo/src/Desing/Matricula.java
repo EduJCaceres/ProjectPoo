@@ -537,7 +537,7 @@ public class Matricula extends javax.swing.JFrame {
         String f = fecha.toString();
         
         try{
-       /* //scrip para validar que nni un campo este vacio
+        /*//scrip para validar que nni un campo este vacio
             if (txtName.getText().length() == 0 || txtApellido.getText().length() == 0 || txtcell.getText().length() == 0 || 
                     txtAltura.getText().length() == 0 || txtPeso.getText().length() == 0 || txtUser.getText().length() == 0 || 
                     txtPass.getText().length() == 0 || txtNumdoc.getText().length() == 0) {
@@ -580,40 +580,44 @@ public class Matricula extends javax.swing.JFrame {
             
         }*/
         
-       /* alumnos.agregar(new Alumno(String.valueOf(f),jcPaises.getSelectedItem().toString(), Double.parseDouble(txtAltura.getText()), Double.parseDouble(txtPeso.getText()), jcDeporte.getSelectedItem().toString(), txtName.getText(), txtApellido.getText(), jcbTipodoc.getSelectedItem().toString(), txtNumdoc.getText(), jcGenero.getSelectedItem().toString(), Integer.parseInt(txtcell.getText()), jcSede.getSelectedItem().toString(), txtUser.getText(), txtPass.getText()));
-            for (Alumno alumno : alumnos) {
-                SGAD.alumnos.add(alumno);
-            }*/
-       
-        SGAD.alumnos.add(al);
-        for(Alumno aa : SGAD.alumnos) {
+       alumnos.agregar(al);
         
-        aa.setNombre(txtName.getText());
-        aa.setApellido(txtApellido.getText());
-        aa.setTelefono(Integer.parseInt(txtcell.getText()));
-        aa.setPais(jcPaises.getSelectedItem().toString());
-        aa.setSede(jcSede.getSelectedItem().toString());
-        aa.setGenero(jcGenero.getSelectedItem().toString());
-        aa.setAltura(Double.parseDouble(txtAltura.getText()));
-        aa.setPeso(Double.parseDouble(txtPeso.getText()));
-        aa.setUsuario(txtUser.getText());
-        aa.setContraseña(txtPass.getText());
-        aa.setTipoDocumento(jcbTipodoc.getSelectedItem().toString());
-        aa.setNumDi(txtNumdoc.getText());
-        aa.setFecNac(String.valueOf(f));
-        aa.getRendimiento();
         
-        alumnos.agregar(aa);
+        for(Alumno aa : alumnos) {
+        
+            aa.setNombre(txtName.getText());
+            aa.setApellido(txtApellido.getText());
+            aa.setTelefono(Integer.parseInt(txtcell.getText()));
+            aa.setPais(jcPaises.getSelectedItem().toString());
+            aa.setSede(jcSede.getSelectedItem().toString());
+            aa.setGenero(jcGenero.getSelectedItem().toString());
+            aa.setAltura(Double.parseDouble(txtAltura.getText()));
+            aa.setPeso(Double.parseDouble(txtPeso.getText()));
+            aa.setUsuario(txtUser.getText());
+            aa.setContraseña(txtPass.getText());
+            aa.setTipoDocumento(jcbTipodoc.getSelectedItem().toString());
+            aa.setNumDi(txtNumdoc.getText());
+            aa.setFecNac(String.valueOf(f));
+            aa.getRendimiento();
+            aa.setDeporte(jcDeporte.getSelectedItem().toString());
+            
+            SGAD.alumnos.add(aa);
+            
         }
         
-        JOptionPane.showMessageDialog(this, "Usuario registrado");
-        
         limpiarControles();
+        JOptionPane.showMessageDialog(this, "Usuario registrado");
        
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
             return;
         }  
+        
+        /* alumnos.agregar(new Alumno(String.valueOf(f),jcPaises.getSelectedItem().toString(), Double.parseDouble(txtAltura.getText()), Double.parseDouble(txtPeso.getText()), jcDeporte.getSelectedItem().toString(), txtName.getText(), txtApellido.getText(), jcbTipodoc.getSelectedItem().toString(), txtNumdoc.getText(), jcGenero.getSelectedItem().toString(), Integer.parseInt(txtcell.getText()), jcSede.getSelectedItem().toString(), txtUser.getText(), txtPass.getText()));
+            for (Alumno alumno : alumnos) {
+                SGAD.alumnos.add(alumno);
+            }*/
+        
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void jcPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcPaisesActionPerformed

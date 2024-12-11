@@ -4,11 +4,14 @@
  */
 package Desing;
 
+import Class.Alumno;
+import SoftwareAcademia.SGAD;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -48,13 +51,13 @@ public class StudentLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jTextField8 = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jPasswordField8 = new javax.swing.JPasswordField();
         btnNext = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        txtContraseña = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -65,10 +68,11 @@ public class StudentLogin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField8.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(246, 179, 158)));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        txtUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(246, 179, 158)));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
@@ -83,11 +87,6 @@ public class StudentLogin extends javax.swing.JFrame {
 
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Contraseña");
-
-        jPasswordField8.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField8.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(246, 179, 158)));
 
         btnNext.setBackground(new java.awt.Color(204, 204, 204));
         btnNext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -106,6 +105,11 @@ public class StudentLogin extends javax.swing.JFrame {
             }
         });
 
+        txtContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        txtContraseña.setForeground(new java.awt.Color(0, 0, 0));
+        txtContraseña.setText("jPasswordField1");
+        txtContraseña.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(246, 179, 158)));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -117,13 +121,12 @@ public class StudentLogin extends javax.swing.JFrame {
                         .addComponent(jLabel24))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-                                .addComponent(jLabel26)
-                                .addComponent(jPasswordField8))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnNext, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                            .addComponent(jLabel26)
+                            .addComponent(txtContraseña)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -139,12 +142,12 @@ public class StudentLogin extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel26)
-                .addGap(18, 18, 18)
-                .addComponent(jPasswordField8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83)
                 .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -212,6 +215,37 @@ public class StudentLogin extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
+        if(txtUsuario.getText().length()==0 || txtContraseña.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Datos incompletos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        try{
+            boolean rpta = false;
+            for(Alumno en : SGAD.alumnos){
+                if(en.getUsuario().equalsIgnoreCase(txtUsuario.getText()) && en.getContraseña().equalsIgnoreCase(txtContraseña.getText())) {
+                    rpta = true;
+                }
+            }
+            
+            if(rpta==true){
+                
+                CoachMenu x = new CoachMenu();
+                x.setVisible(true);
+                x.setLocationRelativeTo(null);
+                this.setVisible(false);
+                
+            }else{
+                
+                JOptionPane.showMessageDialog(this, "Usuario o Contraseña incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
+                
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e);
+        }
+        
         StuentMenu x = new StuentMenu();
         x.setVisible(true);
         x.setLocationRelativeTo(null);
@@ -238,8 +272,8 @@ public class StudentLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField8;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

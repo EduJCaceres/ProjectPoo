@@ -16,7 +16,7 @@ import java.util.function.Predicate;
  */
 public interface GestionColecciones<T> {
     void agregar(T elements);
-    void eliminar(T elements);
+    void eliminar(int index);
     void modificar(int s, T elements);
     List<T> filtrar(Predicate<T> criterio);
 }

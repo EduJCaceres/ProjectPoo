@@ -8,8 +8,10 @@ import Class.Alumno;
 import ClassMethods.GestionColeccion;
 import Enumeradores.Deporte;
 import SoftwareAcademia.SGAD;
+import com.sun.jdi.Value;
 import java.awt.FlowLayout;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,7 +24,7 @@ import javax.swing.table.TableModel;
  * @author leona
  */
 public class AdminListarAlumno extends javax.swing.JFrame {
-    
+    GestionColeccion<Alumno> alumno = new GestionColeccion<>();
    /**
      * Creates new form AdminListarAlumno
      */
@@ -171,7 +173,7 @@ public class AdminListarAlumno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void llenarTabla(){
-        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Nombre","Apellido","Genero","Categoria","Sede","Pais","Altura","Peso","Rendimiento"},SGAD.alumnos.size());
+        DefaultTableModel modelo = new DefaultTableModel(new String[]{"Nombre","Apellido","Genero","Categoria","Sede","Pais","Altura","Peso","Rendimiento","Usuario", "Contraseña","Deporte"},SGAD.alumnos.size());
         JAlumnos.setModel(modelo);
         
         TableModel modeloTabla = JAlumnos.getModel();
@@ -188,6 +190,9 @@ public class AdminListarAlumno extends javax.swing.JFrame {
             modeloTabla.setValueAt(String.valueOf(al.getAltura()), i, 6);
             modeloTabla.setValueAt(String.valueOf(al.getPeso()) ,i, 7);
             modeloTabla.setValueAt(String.valueOf(al.getRendimiento()), i, 8);
+            modeloTabla.setValueAt(al.getUsuario(), i, 9);
+            modeloTabla.setValueAt(al.getContraseña(), i, 10);
+            modeloTabla.setValueAt(al.getDeporte(), i, 11);
         }
     }
     
@@ -202,6 +207,14 @@ public class AdminListarAlumno extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel mode = (DefaultTableModel) JAlumnos.getModel();
+                mode.setRowCount(0);
+        for(Alumno alo : SGAD.alumnos){
+            if(alo.getNombre().equalsIgnoreCase(txtBuscar.getText())){
+                mode.addRow(new Object[]{alo.getNombre(), alo.getApellido(), alo.getGenero(), alo.getFecNac(), alo.getSede(), alo.getPais(), alo.getAltura(), alo.getPeso(), alo.getRendimiento(), alo.getUsuario(), alo.getContraseña(), alo.getDeporte()});
+            }
+        }
+        
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -212,45 +225,53 @@ public class AdminListarAlumno extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        int el = JAlumnos.getSelectedRow();
         
+        if(el>=0){
+        SGAD.alumnos.remove(el);
+        llenarTabla();
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
+        int index = JAlumnos.getSelectedRow();
         
+        if(index>=0){
+            Object[] opciones = {"usuario", "contraseña"};
+            int eleccion = JOptionPane.showOptionDialog(
+                null,
+                "¿Qué campo desea modificar?",
+                "Modificar Usuario o Contraseña",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]
+            );
+            
+            if (eleccion == JOptionPane.YES_OPTION) { // Usuario
+        String nuevoUsuario = JOptionPane.showInputDialog("Ingrese el nuevo usuario:");
+        if (nuevoUsuario != null && !nuevoUsuario.trim().isEmpty()) {
+            // Actualizar el campo usuario del alumno
+            SGAD.alumnos.get(index).setUsuario(nuevoUsuario);
+        } else {
+            JOptionPane.showMessageDialog(null, "El campo usuario no puede estar vacío.");
+        }
+    } else if (eleccion == JOptionPane.NO_OPTION) { // Contraseña
+        String nuevaContraseña = JOptionPane.showInputDialog("Ingrese la nueva contraseña:");
+        if (nuevaContraseña != null && !nuevaContraseña.trim().isEmpty()) {
+            // Actualizar el campo contraseña del alumno
+            SGAD.alumnos.get(index).setContraseña(nuevaContraseña);
+        } else {
+            JOptionPane.showMessageDialog(null, "El campo contraseña no puede estar vacío.");
+        }
+    }
+            llenarTabla();
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
     
-    public class MainFrame extends JFrame {
     
-        public MainFrame() {
-            setTitle("Modificación de Datos");
-            setSize(400, 300);
-            setDefaultCloseOperation(EXIT_ON_CLOSE);
-            setLayout(new FlowLayout());
-            JButton modificarBtn = new JButton("Modificar");
-            modificarBtn.addActionListener(e -> modificarElemento());
-            add(modificarBtn);
-        }
-        
-        private void modificarElemento() {
-            try{
-                int indice = Integer.parseInt(JOptionPane.showInputDialog(this, "ingrese el indice del elemento a modificar"));
-                String opcion;
-                
-            }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(this, "debe ingresar un numero valido para el indice", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-        
-    }
-    public static void main(String args[]) {
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminListarAlumno().setVisible(true);
-            }
-        });
-    }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JAlumnos;

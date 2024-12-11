@@ -14,37 +14,46 @@ import java.util.ArrayList;
  * @author Edu
  */
 public class Entrenador extends Persona implements Comparable<Entrenador>{
-    private Deporte especialidad;
-    private Paises pais;
-    private LocalDate fecNac; //Fecha de Nacimiento
+    private String especialidad;
+    private String pais;
+    private String fecNac; //Fecha de Nacimiento
+    private String email;
     
     public Entrenador(){
         super();
     }
 
-    public Paises getPais() {
+    public String getPais() {
         return pais;
     }
 
-    public void setPais(Paises pais) {
+    public void setPais(String pais) {
         this.pais = pais;
     }
 
 
-    public Deporte getEspecialidad() {
+    public String getEspecialidad() {
         return especialidad;
     }
 
-    public void setEspecialidad(Deporte especialidad) {
+    public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
 
-    public LocalDate getFecNac() {
+    public String getFecNac() {
         return fecNac;
     }
 
-    public void setFecNac(LocalDate fecNac) {
+    public void setFecNac(String fecNac) {
         this.fecNac = fecNac;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
     
     

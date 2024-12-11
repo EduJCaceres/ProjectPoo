@@ -26,8 +26,8 @@ public class GestionColeccion<T extends Persona> implements GestionColecciones<T
     }
     
     @Override
-    public void eliminar(T persona){
-        personas.remove(persona);
+    public void eliminar(int index){
+        personas.remove(index);
     }
     
      @Override

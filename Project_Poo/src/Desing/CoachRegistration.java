@@ -5,14 +5,19 @@
 package Desing;
 
 import Class.Entrenador;
+import ClassMethods.GestionColeccion;
 import Enumeradores.Deporte;
 import Enumeradores.Generos;
 import Enumeradores.Paises;
+import Enumeradores.Sede;
+import Enumeradores.TipoDocumento;
+import SoftwareAcademia.SGAD;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,24 +25,32 @@ import javax.swing.JOptionPane;
  * @author leona
  */
 public class CoachRegistration extends javax.swing.JFrame {
-    Entrenador entrenador = new Entrenador();
+    GestionColeccion<Entrenador> coach = new GestionColeccion<>();
+    Entrenador en = new Entrenador();
+    Date fecha;
     /**
      * Creates new form CoachRegistration
      */
     public CoachRegistration() {
         initComponents();
         this.setLocationRelativeTo(this);
-        for (Generos genero : Generos.values()) {
-            cbGenero.addItem(genero);
-        }
-        for (Deporte especialidad : Deporte.values()) {
-            cbDeportes.addItem(especialidad);
-        }
-        for (Paises pais : Paises.values()){
-             jcPaises.addItem(pais);
+        
+        DefaultComboBoxModel<Generos> g = new DefaultComboBoxModel<>(new Generos[] {Generos.FEMENINO, Generos.MASCULINO, Generos.OTROS});
+        cbGenero.setModel(g);
+        
+        DefaultComboBoxModel<Deporte> e = new DefaultComboBoxModel<>(new Deporte[] {Deporte.BASQUET, Deporte.BOXEO, Deporte.FUTBOL_SALA, Deporte.FUTBOL_SOCCER, Deporte.NATACION, Deporte.TENIS, Deporte.VOLEY});
+        cbDeportes.setModel(e);
+        
+        DefaultComboBoxModel<Paises> p = new DefaultComboBoxModel<>(new Paises[] {Paises.ARGENTINA, Paises.BOLIVIA, Paises.BRASIL, Paises.CHILE, Paises.COLOMBIA, Paises.ECUADOR, Paises.PARAGUAY, Paises.PERU, Paises.URUGUAY, Paises.VENEZUELA});
+        jcPaises.setModel(p);
+        
+        DefaultComboBoxModel<TipoDocumento> td = new DefaultComboBoxModel<>(new TipoDocumento[] {TipoDocumento.CARNET_EXTRANJERIA, TipoDocumento.DNI, TipoDocumento.PASAPORTE});
+        cbTipDoc.setModel(td);
+        
+        DefaultComboBoxModel<Sede> s = new DefaultComboBoxModel<>(new Sede[] {Sede.CHICLAYO, Sede.CHIMBOTE, Sede.LIMA, Sede.TRUJILLO});
+        cbSede.setModel(s);
     }
-    }
-          //Coach c = new Coach();
+          
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,7 +72,7 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jdFechaNac = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         cbGenero = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
@@ -68,7 +81,6 @@ public class CoachRegistration extends javax.swing.JFrame {
         cbDeportes = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtTipoDoc = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtNumeroDoc = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -77,7 +89,10 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        cbSede = new javax.swing.JComboBox<>();
         jcPaises = new javax.swing.JComboBox<>();
+        cbTipDoc = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -147,10 +162,10 @@ public class CoachRegistration extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Fecha deNacimiento:");
+        jLabel5.setText("Fecha de Nacimiento:");
 
-        jDateChooser1.setBackground(new java.awt.Color(204, 204, 204));
-        jDateChooser1.setForeground(new java.awt.Color(255, 255, 255));
+        jdFechaNac.setBackground(new java.awt.Color(204, 204, 204));
+        jdFechaNac.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -185,9 +200,6 @@ public class CoachRegistration extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Tipo de Documento:");
-
-        txtTipoDoc.setBackground(new java.awt.Color(255, 255, 255));
-        txtTipoDoc.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
@@ -227,6 +239,9 @@ public class CoachRegistration extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Sede:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -238,28 +253,34 @@ public class CoachRegistration extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addGap(61, 61, 61)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(cbSede, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(cbSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRegistrar)
-                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout txtPaisLayout = new javax.swing.GroupLayout(txtPais);
@@ -274,7 +295,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(txtPaisLayout.createSequentialGroup()
-                        .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(txtPaisLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,9 +305,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel7))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                            .addComponent(txtTipoDoc)))))
+                                        .addComponent(cbTipDoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(txtPaisLayout.createSequentialGroup()
                                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(txtPaisLayout.createSequentialGroup()
@@ -297,8 +316,9 @@ public class CoachRegistration extends javax.swing.JFrame {
                                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(63, 63, 63)
+                                    .addComponent(cbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(69, 69, 69)
                         .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(txtPaisLayout.createSequentialGroup()
                                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +327,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                                 .addGap(36, 36, 36)
                                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtApellido)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)))
+                                    .addComponent(jdFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)))
                             .addGroup(txtPaisLayout.createSequentialGroup()
                                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
@@ -339,7 +359,7 @@ public class CoachRegistration extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
@@ -352,18 +372,18 @@ public class CoachRegistration extends javax.swing.JFrame {
                     .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(jcPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel7)))
+                    .addComponent(jLabel7)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(txtPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(jLabel11)
+                        .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbTipDoc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -390,11 +410,14 @@ public class CoachRegistration extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        fecha = jdFechaNac.getDate();
+        String fecNac = fecha.toString();
+        
   try {
-            // Validaciones de campos vacíos
+           /* // Validaciones de campos vacíos
             if (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty() ||
                 txtNumeroDoc.getText().isEmpty() || txtTelefono.getText().isEmpty() ||
-                txtEmail.getText().isEmpty()|| jDateChooser1.getDate() == null ||
+                txtEmail.getText().isEmpty()|| jdFechaNac.getDate() == null ||
                 cbGenero.getSelectedItem() == null || cbDeportes.getSelectedItem() == null ||
 
                 txtUser.getText().isEmpty() || txtContraseña.getText().isEmpty())
@@ -436,7 +459,7 @@ public class CoachRegistration extends javax.swing.JFrame {
 
 
             // Validación de fecha de nacimiento 
-            LocalDate fechaNacimiento = jDateChooser1.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+            LocalDate fechaNacimiento = jdFechaNac.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
             LocalDate fechaActual = LocalDate.now();
              Period periodo = Period.between(fechaNacimiento, fechaActual);
              if (periodo.getYears() < 7) {
@@ -447,37 +470,33 @@ public class CoachRegistration extends javax.swing.JFrame {
                  return;
                   }
 
-             
-
-
             // Validación de contraseña robusta
              String contraseña = txtContraseña.getText();
              if (!validarContrasena(contraseña)) {
                  JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
+             }*/
+             
+             SGAD.entrenador.add(en);
+             
+             for(Entrenador ee : SGAD.entrenador) {
+                 
+                 ee.setNombre(txtNombre.getText());
+                 ee.setApellido(txtApellido.getText());
+                 ee.setTelefono(Integer.parseInt(txtTelefono.getText()));
+                 ee.setFecNac(String.valueOf(fecNac));
+                 ee.setGenero(cbGenero.getSelectedItem().toString());
+                 ee.setEspecialidad(cbDeportes.getSelectedItem().toString());
+                 ee.setEmail(txtEmail.getText());
+                 ee.setPais(jcPaises.getSelectedItem().toString());
+                 ee.setTipoDocumento(cbTipDoc.getSelectedItem().toString());
+                 ee.setNumDi(txtNumeroDoc.getText());
+                 ee.setUsuario(txtUser.getText());
+                 ee.setContraseña(txtContraseña.getText());
+                 ee.setSede(cbSede.getSelectedItem().toString());
+                 
+                 coach.agregar(ee);
              }
-
-     Entrenador entrenador = new Entrenador();
-            // ... (Asignar valores al objeto Entrenador) ...
-           //entrenador.setGenero((Generos) cbGenero.getSelectedItem());
-          // entrenador.setEspecialidad(() cbDeportes.getSelectedItem()); arreglar
-
-      //entrenador.setGenero((Generos) cbGenero.getSelectedItem());
-      // entrenador.setEspecialidad((Deportes) cbDeportes.getSelectedItem()); arreglar
-
-
-     
-      entrenador.setNombre(txtNombre.getText());
-      entrenador.setApellido(txtApellido.getText());
-      entrenador.setNumDi(txtNumeroDoc.getText());
-      entrenador.setTelefono(Integer.parseInt(txtTelefono.getText()));
-    //  entrenador.setEmail(txtEmail.getText()); // Agrega este atributo si lo tienes en Persona
-     // entrenador.setGenero((Generos) cbGenero.getSelectedItem());
-      entrenador.setPais((Paises) jcPaises.getSelectedItem());
-      entrenador.setEspecialidad((Deporte) cbDeportes.getSelectedItem());
-      entrenador.setUsuario(txtUser.getText());
-      entrenador.setContraseña(txtContraseña.getText());
-
 
        JOptionPane.showMessageDialog(this, "Registro de entrenador exitoso.");
 
@@ -513,25 +532,20 @@ public class CoachRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbDeportesActionPerformed
 
-    public static void main(String args[]) {
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminListarAlumno().setVisible(true);
-            }
-        });
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<Enumeradores.Deporte> cbDeportes;
     private javax.swing.JComboBox<Enumeradores.Generos> cbGenero;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JComboBox<Enumeradores.Sede> cbSede;
+    private javax.swing.JComboBox<Enumeradores.TipoDocumento> cbTipDoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -543,6 +557,7 @@ public class CoachRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JComboBox<Enumeradores.Paises> jcPaises;
+    private com.toedter.calendar.JDateChooser jdFechaNac;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtEmail;
@@ -550,7 +565,6 @@ public class CoachRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField txtNumeroDoc;
     private javax.swing.JPanel txtPais;
     private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtTipoDoc;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

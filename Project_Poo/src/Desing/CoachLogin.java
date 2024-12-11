@@ -4,10 +4,13 @@
  */
 package Desing;
 
+import Class.Entrenador;
+import SoftwareAcademia.SGAD;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -50,11 +53,11 @@ public class CoachLogin extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jPasswordField8 = new javax.swing.JPasswordField();
         btnNext = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         btnRegistrarse = new javax.swing.JButton();
         btnExit1 = new javax.swing.JButton();
+        txtContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +103,7 @@ public class CoachLogin extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(134, 208, 198));
+        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(18, 148, 167));
@@ -114,11 +118,6 @@ public class CoachLogin extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Contraseña:");
 
-        jPasswordField8.setBackground(new java.awt.Color(134, 208, 198));
-        jPasswordField8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField8.setForeground(new java.awt.Color(102, 102, 102));
-        jPasswordField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(18, 148, 167)));
-
         btnNext.setBackground(new java.awt.Color(25, 39, 100));
         btnNext.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,11 +128,11 @@ public class CoachLogin extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(134, 208, 198));
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(18, 148, 167)));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.setBackground(new java.awt.Color(134, 208, 198));
+        txtUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(18, 148, 167)));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
 
@@ -156,6 +155,11 @@ public class CoachLogin extends javax.swing.JFrame {
             }
         });
 
+        txtContraseña.setBackground(new java.awt.Color(134, 208, 198));
+        txtContraseña.setForeground(new java.awt.Color(0, 0, 0));
+        txtContraseña.setText("jPasswordField1");
+        txtContraseña.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(18, 148, 167)));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -175,20 +179,20 @@ public class CoachLogin extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnExit1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(71, Short.MAX_VALUE)
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField8)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtUsuario)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel25)
                                     .addComponent(jLabel26))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(71, Short.MAX_VALUE)
-                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(22, 22, 22))
         );
         jPanel2Layout.setVerticalGroup(
@@ -200,13 +204,13 @@ public class CoachLogin extends javax.swing.JFrame {
                 .addComponent(jLabel24)
                 .addGap(58, 58, 58)
                 .addComponent(jLabel25)
-                .addGap(31, 31, 31)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(btnRegistrarse)
                 .addGap(18, 18, 18)
                 .addComponent(btnNext)
@@ -233,10 +237,38 @@ public class CoachLogin extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        CoachMenu x = new CoachMenu();
-        x.setVisible(true);
-        x.setLocationRelativeTo(null);
-        this.setVisible(false);
+        if(txtUsuario.getText().length()==0 || txtContraseña.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Datos incompletos","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        try{
+            boolean rpta = false;
+            for(Entrenador en : SGAD.entrenador){
+                if(en.getUsuario().equalsIgnoreCase(txtUsuario.getText()) && en.getContraseña().equalsIgnoreCase(txtContraseña.getText())) {
+                    rpta = true;
+                }
+            }
+            
+            if(rpta==true){
+                
+                CoachMenu x = new CoachMenu();
+                x.setVisible(true);
+                x.setLocationRelativeTo(null);
+                this.setVisible(false);
+                
+            }else{
+                
+                JOptionPane.showMessageDialog(this, "Usuario o Contraseña incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
+                
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e);
+        }
+        
+        
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExit1ActionPerformed
@@ -255,9 +287,9 @@ public class CoachLogin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,8 +303,8 @@ public class CoachLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
