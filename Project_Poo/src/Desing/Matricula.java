@@ -576,8 +576,6 @@ public class Matricula extends javax.swing.JFrame {
         if(usuario == false || password == false){
             JOptionPane.showMessageDialog(this, "Contraseña o usuario incorrecto", "ERROR",JOptionPane.ERROR_MESSAGE);
             return;
-        }else if(usuario == true && password == true){
-            
         }
         
        alumnos.agregar(al);

@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -469,13 +470,23 @@ public class CoachRegistration extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(this, "Debe ser menor de 25 años para registrarse.");
                  return;
                   }
-
-            // Validación de contraseña robusta
-             String contraseña = txtContraseña.getText();
-             if (!validarContrasena(contraseña)) {
-                 JOptionPane.showMessageDialog(this, "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.", "ERROR", JOptionPane.ERROR_MESSAGE);
-                return;
-             }
+             
+            boolean usuario = true, password = true;
+            
+            Pattern patronUsuario = Pattern.compile("\\w+@academy\\.com$");
+            Matcher users = patronUsuario.matcher(txtUser.getText());
+            usuario = users.find();
+            
+            Pattern patronPassword = Pattern.compile("[A-Za-z\\d]{8,}");
+            Matcher passwords = patronPassword.matcher(txtContraseña.getText());
+            password = passwords.find();
+            
+            if(usuario == false || password == false){
+            JOptionPane.showMessageDialog(this, "Contraseña o usuario incorrecto", "ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+            
+            
              
              SGAD.entrenador.add(en);
              
@@ -510,12 +521,12 @@ public class CoachRegistration extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 
         }
-}
 
-    private boolean validarContrasena(String contraseña) {
+
+    /*private boolean validarContrasena(String contraseña) {
         // Contraseña con al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.
           Pattern patron = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
-        return patron.matcher(contraseña).matches();
+        return patron.matcher(contraseña).matches();*/
 
 
     }//GEN-LAST:event_btnRegistrarActionPerformed

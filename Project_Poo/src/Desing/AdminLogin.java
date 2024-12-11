@@ -7,6 +7,8 @@ package Desing;
 import Class.Administrador;
 import SoftwareAcademia.SGAD;
 import java.awt.Image;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -222,6 +224,21 @@ public class AdminLogin extends javax.swing.JFrame {
             return;
         }
         
+        boolean usuario = true, password = true;
+            
+            Pattern patronUsuario = Pattern.compile("\\w+@academy\\.com$");
+            Matcher users = patronUsuario.matcher(txtUsuario.getText());
+            usuario = users.find();
+            
+            Pattern patronPassword = Pattern.compile("[A-Za-z\\d]{8,}");
+            Matcher passwords = patronPassword.matcher(txtContraseña.getText());
+            password = passwords.find();
+            
+            if(usuario == false || password == false){
+            JOptionPane.showMessageDialog(this, "Contraseña o usuario incorrecto", "ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         try{
             boolean rpta = false;
             for(Administrador en : SGAD.administrador){
@@ -259,9 +276,8 @@ public class AdminLogin extends javax.swing.JFrame {
         x.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
-
-   
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnExit;
